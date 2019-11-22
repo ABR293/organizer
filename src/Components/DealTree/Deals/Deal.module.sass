@@ -1,0 +1,33 @@
+.dealBlock
+  margin: 5px 5px 5px
+  width: 100%
+.dealMain
+  height: 30px
+  min-width: 100px
+  max-width: 60%
+  border: solid 1px black
+  border-radius: 5px
+  display: grid
+  grid-template-rows: 30px
+  grid-template-columns: 25px auto 80px
+  grid-template-areas: 'btn1 dealName dealMenu'
+.subDealsBlock
+  margin-left: 8px
+  height: 30px
+  background-color: #00ff2c
+
+.openBtn
+  grid-area: btn1
+  display: flex
+  justify-content: center
+  align-items: center
+.dealName
+  grid-area: dealName
+  display: flex
+  justify-content: center
+  align-items: center
+.dealMenu
+  grid-area: dealMenu
+  display: flex
+  justify-content: center
+  align-items: center
