@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,OAAO;EACL,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,iBAAiB",
+"sources": ["Footer.module.sass"],
+"names": [],
+"file": "Footer.module.css"
+}

@@ -1,0 +1,38 @@
+.menu {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column; }
+
+.btn {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: #09d3ac;
+  border: solid 2px red;
+  border-radius: 3px;
+  color: #282c34;
+  font-weight: bold;
+  font-size: 15px;
+  outline-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.activbtn {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: #d39e00;
+  border: solid 2px #090909;
+  border-radius: 3px;
+  color: #1f2385;
+  font-weight: bold;
+  font-size: 15px;
+  outline-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+/*# sourceMappingURL=Menu.module.css.map */

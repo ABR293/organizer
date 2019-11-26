@@ -1,0 +1,32 @@
+.listMenu {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+  .listMenu__item {
+    width: 70px;
+    height: 20px;
+    background-color: aqua;
+    border: solid 1px #090909;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; }
+  .listMenu__itemActiv {
+    width: 70px;
+    height: 20px;
+    border: solid 1px #090909;
+    background-color: #f231ff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; }
+  .listMenu__newItem {
+    width: 30px;
+    height: 22px;
+    border: solid 1px #090909;
+    background-color: #ff9805;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; }
+
+/*# sourceMappingURL=ListMenu.module.css.map */

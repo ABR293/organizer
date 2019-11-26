@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,MAAM;EACJ,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,GAAG;;AACb,KAAK;EACH,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;EACnB,KAAK,EAAE,OAAO;EACd,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,QAAS;EACjB,aAAa,EAAE,mBAAmB",
+"sources": ["Settings.module.sass"],
+"names": [],
+"file": "Settings.module.css"
+}

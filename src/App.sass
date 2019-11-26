@@ -1,0 +1,48 @@
+.app
+  position: absolute
+  bottom: 30px
+  top: 30px
+  left: 10%
+  right: 10%
+  height: 95%
+  width: 80%
+  min-height: 400px
+  margin: 2% auto
+  display: grid
+  grid-template-columns: 50px 1fr
+  grid-template-rows: 18% 65% 8%
+  grid-template-areas: "header header" "menu content" "footer footer"
+  grid-gap: 3% 3%
+  justify-content: space-around
+  align-items: start
+  align-content: space-around
+  justify-items: stretch
+
+.header
+  grid-area: header
+  background-color: green
+  border: solid 1px
+  border-radius: 5px
+  height: 100%
+  width: 100%
+
+.menu
+  grid-area: menu
+  background-color: blue
+  border-radius: 5px
+  height: 100%
+  width: 100%
+
+.content
+  grid-area: content
+  background-color: aqua
+  border-radius: 5px
+  height: 100%
+  width: 100%
+
+.footer
+  grid-area: footer
+  background-color: darkslateblue
+  border-radius: 5px
+  height: 100%
+  width: 100%

@@ -1,0 +1,14 @@
+.block {
+  width: 90%;
+  margin: 5px; }
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #090909;
+  width: 90%;
+  margin: 20px 3px;
+  border-bottom: solid 0.5px #868686; }
+
+/*# sourceMappingURL=Settings.module.css.map */
