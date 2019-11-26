@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import style from "./Label.module.css";
 
-
 const Label = (props) => {
 
     let [isActiv, setActiv]=useState(false);

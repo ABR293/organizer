@@ -3,9 +3,8 @@ import './App.css';
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Menu from "./Components/Menu";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import Calendar from "./Components/Calendar";
-import DealTree from "./Components/DealTree";
 import Settings from "./Components/Settings";
 import DealTreeContainer from "./Components/DealTree/DealTreeContainer";
 

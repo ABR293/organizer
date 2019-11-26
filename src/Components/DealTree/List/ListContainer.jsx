@@ -2,19 +2,9 @@ import React from 'react';
 import List from "./List";
 import {withRouter} from "react-router-dom";
 
-
-
-
-
-
 class ListContainer extends React.Component{
 
-
-
-
     render(){
-
-        console.log(this.props);
 
         let id;
         ! this.props.match.params.listId ?
@@ -25,7 +15,7 @@ class ListContainer extends React.Component{
 
         return(
             <List
-                listBody={list.listBody}
+                listBody={list.children}
             />
         )
     }

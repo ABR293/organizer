@@ -5,10 +5,8 @@ import React from 'react';
 import Deal from "../Deals";
 
 
-
-
-
 const List = (props) => {
+
 
 
     let Deals = props.listBody.map((deal)=>{
@@ -16,7 +14,7 @@ const List = (props) => {
             <Deal
                 name={deal.name}
                 key={deal.id}
-                subdeals = {deal.ChildrenDeals}
+                subdeals = {deal.children}
             />
         )
     });
