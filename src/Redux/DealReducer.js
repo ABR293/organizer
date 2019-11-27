@@ -198,10 +198,10 @@ let NewDealCreator = (parentID,) =>{
 
 export const DealReducer = (state = initialState, action) => {
 
-        let idGen = () => {
-
-
-        };
+        // let idGen = () => {
+        //
+        //
+        // };
 
 
         switch(action.type) {
