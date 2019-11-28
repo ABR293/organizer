@@ -17,66 +17,39 @@ class DealTreeContainer extends React.Component {
    */
 
     getElement(id, data) {
-        let item = data.find((item) => item.id.slice(0, 2) === id.slice(0, 2));
-
-        if( id.length >= 2 ){
-            console.log(item);
-            console.log(id);
-            console.log(item.children);
-            console.log(id.slice(2));
-            let e = this.getElement(id.slice(2), item.children);
-            console.log(e)
+        let item = data.find((item) => item.id.slice(-2) === id.slice(0, 2));
+        if(id.length > 2){
+            item = this.getElement( id.slice(2), item.children);
         }
-        else{return item}
+        return item
     };
-
-/*
-
-   CopyData(data){
-      let newData = [...data];
-      newData.forEach((item) => {
-          item = {...item};
-          if (item.children.length !== 0){
-              this.CopyData(item.children);
-          }
-      });
-         return newData;
-    };
-
-*/
 
     CopyData(data) {
-        let newData = [...data];
-        newData.forEach((item) => {
+        return( data.map((item) => {
+            let newItem = {...item};
             if(item.children.length !== 0){
-                this.CopyData(item.children)
+                item.children = this.CopyData(item.children);
             }
-            item = {...item}
-        });
-        return newData;
+            return newItem;
+        }))
     };
 
-/*
 
-   ChangeDealName(id, name, data) {
-        let newData = [...data];
-        newData.forEach((item)=>{
-           if(item.id === id.slice(0,2)){
-               item = {...item}
-               if(id.length >= 2){
-                   this.ChangeDealName(id.slice(2))
-               }
-           }
-           else if(item.children.length !==0){
-               item = {...item};
-               this.CopyData(item.children);
-           }
-           else{ item = {...item} }
-        });
-        return newData
+    ChangeDealName(id, name, data) {
+        return( data.map((item)=>{
+            let newItem = {...item};
+            if(item.id.slice(-2) === id.slice(0, 2)){
+                id.length === 2
+                ? newItem = {...item, name:name}
+                : newItem.children = this.ChangeDealName(id.slice(2), name, newItem.children);}
+            if(item.children.length !== 0){
+                item.children = this.CopyData(item.children);
+            }
+            return newItem;
+        }))
     };
 
-*/
+
 
 /*
         id.slice(0.2)
@@ -90,31 +63,21 @@ class DealTreeContainer extends React.Component {
     };*/
 
 
-
-
-
-
     render() {
         let testData = this.props.data;
-
-        console.log(testData);
         let TestCopy = (this.CopyData(testData));
         console.log(TestCopy);
-        console.log(this.getElement('324268', TestCopy));
-        //let TestCopy2 = (this.ChangeDealName('3242','IFDJFJOIF',TestCopy));
-        //console.log(TestCopy2);
-        // TestCopy = 'deleted';
-        // console.log(TestCopy);
-        // console.log(testData);
+        //console.log(this.getElement('324268', TestCopy));
+        let TestCopy2 = (this.ChangeDealName('113154','IFDJFJOIF',TestCopy));
+        console.log(TestCopy2);
 
-        console.log();
 
 
 
         return (
             <>
                 <DealTree
-                    data={this.props.data}
+                    data={testData}
                 />
             </>)
     };
