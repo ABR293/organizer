@@ -1,8 +1,9 @@
 import React from 'react';
+import DealContainer from "../Deals/DealContainer";
 //import style from './List.module.css';
-
 //import {withRouter} from "react-router-dom";
-import Deal from "../Deals";
+//import Deal from "../Deals";
+
 
 
 const List = (props) => {
@@ -10,10 +11,12 @@ const List = (props) => {
 
 
     let Deals = props.listBody.map((deal)=>{
+        console.log(deal);
         return(
-            <Deal
-                name={deal.name}
+            <DealContainer
                 key={deal.id}
+                id={deal.id}
+                name={deal.name}
                 subdeals = {deal.children}
             />
         )

@@ -19,19 +19,27 @@ const Deal = (props) => {
     let changeShowSubDeal = () =>{
         showSubDeal ? setShowSubDeal(false) : setShowSubDeal(true)
     };
-
-
+    console.log(props.id);
+    //let onAddNevDeal = props.addNewDeal(props.id);
 
     return (
         <div className={style.dealBlock}>
             <div className={style.dealMain}>
                 <div className={style.openBtn}>
                     {props.subdeals.length === 0 ?
-                        <AddNewDeal make={ShowS}/> :
+                        <AddNewDeal make={ShowS}
+                                    id = {props.id}
+                        /> :
                         <OpenTree make={changeShowSubDeal}/>
                     }
                 </div>
-                <div className={style.dealName}><Label name={props.name}/></div>
+                <div className={style.dealName}>
+                    <Label
+                        name={props.name}
+                        changeName={props.changeName}
+                        id={props.id}
+                    />
+                </div>
                 <div className={style.dealMenu}>
                     <RedactDeal make={ShowS}/>
                     <ShowDescription make={ShowS}/>

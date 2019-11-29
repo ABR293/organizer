@@ -1,0 +1,31 @@
+import React from 'react';
+import {connect} from "react-redux";
+import Deal from "./Deal";
+import {addNewDeal, changeName} from "../../../Redux/DealReducer";
+
+
+
+
+class DealContainer extends React.Component{
+
+    render(){
+        console.log(this.props);
+
+        return(
+            <Deal name={this.props.name}
+                  id={this.props.id}
+                  subdeals = {this.props.subdeals}
+                  addNewDeal = {this.props.addNewDeal}
+                  changeName = {this.props.changeName}
+            />
+            )
+    }
+}
+
+let mapStateToProps = (state) => {
+    return {
+        state
+    }
+};
+
+export default connect(mapStateToProps,{changeName,addNewDeal,})(DealContainer);

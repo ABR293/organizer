@@ -29,8 +29,8 @@ class DealTreeContainer extends React.Component {
             let newItem = {...item};
             if(item.id.slice(-2) === id.slice(0, 2)){
                 id.length === 2
-                ? newItem = {...item, ...changing}
-                : newItem.children = this.ChangeDealName(id.slice(2), changing, newItem.children);}
+                    ? newItem = {...item, ...changing}
+                    : newItem.children = this.ChangeDealName(id.slice(2), changing, newItem.children);}
             if(item.children.length !== 0){
                 item.children = this.CopyData(item.children);
             }
@@ -78,31 +78,28 @@ class DealTreeContainer extends React.Component {
         let listId = this.genId();
         do {listId = this.genId();}
         while(data.find(item=>item.id === listId) === -1);
-
-        let NewList ={
+        return [...data, {
             id: listId,
-                name: 'New list',
+            name: 'New list',
             children: []
-        };
-        let newData = [...data, NewList];
-
-        return newData;
+        }];
     };
 
 
     render() {
-        let testData = this.props.data;
-        let TestCopy = (this.CopyData(testData));
-        console.log(TestCopy);
-        //console.log(this.getElement('324268', TestCopy));
-        let TestCopy2 = (this.addSubDeal('32' ,TestCopy));
-        console.log(TestCopy2);
+         let testData = this.props.data;
+         //console.log(testData);
+        // let TestCopy = (this.CopyData(testData));
+        // console.log(TestCopy);
+        // //console.log(this.getElement('324268', TestCopy));
+        // let TestCopy2 = (this.addList('32' ,TestCopy));
+        // console.log(TestCopy2);
 
 
         return (
             <>
                 <DealTree
-                    data={TestCopy2}
+                    data={testData}
                 />
             </>)
     };
