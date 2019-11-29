@@ -10,7 +10,6 @@ const MAKE_DONE = 'MAKE-DONE';
 
 let initialState =
     [
-
         {
             id: '32',
             name: 'coding',
@@ -134,75 +133,10 @@ let initialState =
         }
     ];
 
-
-
-
-//let t1 = getElement('32', initialState);
-
-//window.test1 = t1;
-
-/*let userData = 'userData';
-
-let JState = JSON.parse(localStorage.userData);
-
-window.jst = JState;*/
-
-
 export const changeNameAC = (elementId, newName) => ({type:CHANGE_NAME, elementId:elementId, newName:newName});
-
-/*
-let idGen = () => {
-
-};
-
-let idCreator = (parentID, list) => {
-    let newID = parentID + idGen();
-    while( list.findIndex((el) => el.id == newID) !== -1){
-        newID = parentID + idGen();
-    }
-    return newID;
-} ;
-
-let NewDealCreator = (parentID,) =>{
-
-
-
-    let newID = idCreator(parentID, list);
-
-    return{
-        //New List
-        id: newID,
-        name: 'NewList',
-        listBody: [
-            // New Deal
-            {
-                id: 11,
-                name: 'New Deal ',
-                description: '',
-                importance: false,
-                startDate: null,
-                deadLine: null,
-                isShowInCalendar: false,
-                done: false,
-                ChildrenDeals: []
-            },
-        ]
-    }
-};
-
-*/
-
-
-
 
 
 export const DealReducer = (state = initialState, action) => {
-
-        // let idGen = () => {
-        //
-        //
-        // };
-
 
         switch(action.type) {
             case ADD_LIST: {

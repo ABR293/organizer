@@ -16,14 +16,13 @@ class DealTreeContainer extends React.Component {
     CopyData(data) {
         return( data.map((item) => {
             let newItem = {...item};
-            console.log(item);
+
             if(item.children.length !== 0){
                 item.children = this.CopyData(item.children);
             }
             return newItem;
         }))
     };
-
 
     ChangeDealName(id, changing, data) {
         return( data.map((item)=>{
@@ -44,16 +43,16 @@ class DealTreeContainer extends React.Component {
         return Math.floor(rand)+'';
     };
 
-
     addSubDeal(id, data) {
         return (data.map((item) => {
             let newItem = {...item};
-            console.log(newItem);
             if (item.id.slice(-2) === id.slice(0, 2)) {
                 if (id.length === 2) {
-                    console.log(item.children);
+                    let subDealId = this.genId();
+                    do {subDealId = this.genId();}
+                    while(item.children.find(item=>item.id === subDealId) === -1);
                     item.children.push({
-                        id: item.id+this.genId(),
+                        id: item.id+subDealId,
                         name: 'New Deal ',
                         description: '',
                         importance: false,
@@ -63,18 +62,31 @@ class DealTreeContainer extends React.Component {
                         done: false,
                         children: []
                     });
-                    console.log(item.children);
                 }
                 else {
-                console.log(item.children);
-                newItem.children = this.addSubDeal(id.slice(2), newItem.children);
+                    newItem.children = this.addSubDeal(id.slice(2), newItem.children);
                 }
+            }
             if (item.children.length !== 0) {
-                console.log(item.children);
                 item.children = this.CopyData(item.children);
             }
             return newItem;
-        }}))
+        }))
+    };
+
+    addList(data) {
+        let listId = this.genId();
+        do {listId = this.genId();}
+        while(data.find(item=>item.id === listId) === -1);
+
+        let NewList ={
+            id: listId,
+                name: 'New list',
+            children: []
+        };
+        let newData = [...data, NewList];
+
+        return newData;
     };
 
 
@@ -83,15 +95,14 @@ class DealTreeContainer extends React.Component {
         let TestCopy = (this.CopyData(testData));
         console.log(TestCopy);
         //console.log(this.getElement('324268', TestCopy));
-        let TestCopy2 = (this.addSubDeal('3242', TestCopy));
+        let TestCopy2 = (this.addSubDeal('32' ,TestCopy));
         console.log(TestCopy2);
-
 
 
         return (
             <>
                 <DealTree
-                    data={testData}
+                    data={TestCopy2}
                 />
             </>)
     };
