@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import style from "./Label.module.css";
+import {LabelHOC} from "./LabelHOC";
 
 const Label = (props) => {
-
     let [isActiv, setActiv]=useState(false);
     let [name, setName]  = useState(props.name);
 
@@ -13,8 +13,6 @@ const Label = (props) => {
         setName(element.currentTarget.value);
     };
     let updateName = () => {
-        console.log(props);
-        console.log(name);
         props.changeName(props.id, name);
         changeActivity();
     };
@@ -34,4 +32,4 @@ const Label = (props) => {
     )
 };
 
-export default Label;
+export default LabelHOC(Label);

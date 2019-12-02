@@ -9,7 +9,6 @@ import {addNewDeal, changeName} from "../../../Redux/DealReducer";
 class DealContainer extends React.Component{
 
     render(){
-        console.log(this.props);
 
         return(
             <Deal name={this.props.name}

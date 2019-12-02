@@ -11,9 +11,9 @@ class ListContainer extends React.Component{
             id = '32' :
             id = this.props.match.params.listId;
             let list = this.props.dataP.find(list => list.id === id);
-
         return(
             <List
+                id={id}
                 listBody={list.children}
             />
         )

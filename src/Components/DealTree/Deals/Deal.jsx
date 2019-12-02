@@ -19,7 +19,6 @@ const Deal = (props) => {
     let changeShowSubDeal = () =>{
         showSubDeal ? setShowSubDeal(false) : setShowSubDeal(true)
     };
-    console.log(props.id);
     //let onAddNevDeal = props.addNewDeal(props.id);
 
     return (
@@ -27,8 +26,7 @@ const Deal = (props) => {
             <div className={style.dealMain}>
                 <div className={style.openBtn}>
                     {props.subdeals.length === 0 ?
-                        <AddNewDeal make={ShowS}
-                                    id = {props.id}
+                        <AddNewDeal id ={props.id}
                         /> :
                         <OpenTree make={changeShowSubDeal}/>
                     }
@@ -36,7 +34,6 @@ const Deal = (props) => {
                 <div className={style.dealName}>
                     <Label
                         name={props.name}
-                        changeName={props.changeName}
                         id={props.id}
                     />
                 </div>
@@ -47,8 +44,7 @@ const Deal = (props) => {
                 </div>
             </div>
              <div  className={showSubDeal ? style.subDealsBlock : style.sadDealsBlockNone}>
-                 {props.subdeals.length === 0 ? null : <List listBody={props.subdeals}/>}
-                    <AddNewDeal make={printE}/>
+                 {props.subdeals.length === 0 ? null : <List id={props.id} listBody={props.subdeals}/>}
                </div>
         </div>
     )

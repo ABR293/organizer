@@ -15,18 +15,16 @@ const ListMenu = (props) => {
                     className={style.listMenu__item}
                     activeClassName={style.listMenu__itemActiv}
                     key={list.id}
+                    id={list.id}
                 >
-                    <div><Label name={list.name}/></div>
+                    <div><Label name={list.name} id={list.id}/></div>
                 </NavLink>
             )
     });
-
-    let printE = () => {console.log('E!')};
-
     return(
         <div className={style.listMenu}>
             {Lists}
-            <button className={style.listMenu__newItem} onClick={printE}> + </button>
+            <button className={style.listMenu__newItem} onClick={props.addNewList} > + </button>
         </div>
     )
 };

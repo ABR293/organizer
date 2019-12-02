@@ -3,6 +3,9 @@ const ADD_DEAL = 'ADD-DEAL';
 const CHANGE_NAME = 'CHANGE-NAME';
 const CHANGE_DATE = 'CHANGE-DATE';
 const MAKE_DONE = 'MAKE-DONE';
+const SAVE_CHANGES = 'SAVE-CHANGES';
+const INIT_DATA = 'INIT-DATA';
+
 
 let initialState =
     [
@@ -133,8 +136,10 @@ export const changeName = (id, newName) => ({type:CHANGE_NAME, id:id, name:newNa
 //export const changeData = (id, newName) => ({type:CHANGE_NAME, id:id, newName:newName});
 //export const Change = (id, newName) => ({type:CHANGE_NAME, id:id, newName:newName});
 export const addNewDeal = (id) => ({type:ADD_DEAL, id:id});
-export const addNewList = (id, newName) => ({type:CHANGE_NAME, id:id, newName:newName});
-export const MakeDone = (id) =>  ({type:MAKE_DONE, id:id});
+export const addNewList = () => ({type:ADD_LIST});
+
+export const saveData = () =>  {console.log('AC SD'); return({type:SAVE_CHANGES})};
+export const initData = () =>  {console.log('AC ID'); return({type:INIT_DATA})};
 
 
 const getElement = (id, data) => {
@@ -163,9 +168,6 @@ const ChangeDeal = (id, changing, data) => {
             id.length === 2
                 ? newItem = {...item, ...changing}
                 : newItem.children = ChangeDeal(id.slice(2), changing, newItem.children);}
-        if(item.children.length !== 0){
-            item.children = CopyData(item.children);
-        }
         return newItem;
     }))
 };
@@ -178,6 +180,8 @@ const genId = () => {
 const addSubDeal = (id, data) => {
     return (data.map((item) => {
         let newItem = {...item};
+        console.log('itemID='+item.id,'ID='+id);
+        console.log('itemID.slice(-2)='+ item.id.slice(-2),'ID.slice(0,2)='+ id.slice(0, 2));
         if (item.id.slice(-2) === id.slice(0, 2)) {
             if (id.length === 2) {
                 let subDealId = genId();
@@ -195,12 +199,9 @@ const addSubDeal = (id, data) => {
                     children: []
                 });
             }
-            else {
+            else if (id.length > 2){
                 newItem.children = addSubDeal(id.slice(2), newItem.children);
             }
-        }
-        if (item.children.length !== 0) {
-            item.children = CopyData(item.children);
         }
         return newItem;
     }))
@@ -213,7 +214,17 @@ const addList = (data) => {
     return [...data, {
         id: listId,
         name: 'New list',
-        children: []
+        children: [{
+            id: listId+genId(),
+            name: 'New Deal ',
+            description: '',
+            importance: false,
+            startDate: null,
+            deadLine: null,
+            isShowInCalendar: false,
+            done: false,
+            children: []
+        }]
     }];
 };
 
@@ -225,7 +236,8 @@ export const DealReducer = (state = initialState, action) => {
                 return addList(state)
             }
             case ADD_DEAL: {
-                return addSubDeal(action.id,state)
+                console.log(action.id, state);
+                return addSubDeal(action.id, state)
             }
             case CHANGE_NAME: {
                 console.log(action);
@@ -241,6 +253,12 @@ export const DealReducer = (state = initialState, action) => {
             case MAKE_DONE: {
                 let changing = {done:true};
                 return ChangeDeal(action.id, changing, state)
+            }
+            case SAVE_CHANGES: {
+                localStorage.setItem('userData', JSON.stringify(state));
+            }
+            case INIT_DATA: {
+                return JSON.parse(localStorage.getItem('userData'));
             }
             default: {
                 return [...state]
