@@ -5,9 +5,6 @@ import {addNewDealHOC} from "./AddNewDealHOC";
 
 const AddNewDeal = (props) => {
 
-
-    console.log(props);
-    let printE = () =>{console.log('e')};
     let onclick = () => {props.addNewDeal(props.id)};
 
     return (

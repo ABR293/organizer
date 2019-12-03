@@ -8,10 +8,9 @@ import OpenTree from "../../Common/Buttons/OpenTree";
 import AddNewDeal from "../../Common/Buttons/AddNewDeal";
 import List from "../List/List";
 import Label from "../Label";
+import DeletDeal from "../../Common/Buttons/DeletDeal";
 
 const Deal = (props) => {
-
-    let printE = () =>{console.log('e')};
     let ShowS = () => {console.log(showSubDeal)};
 
     let [showSubDeal, setShowSubDeal] = useState(false);
@@ -19,8 +18,6 @@ const Deal = (props) => {
     let changeShowSubDeal = () =>{
         showSubDeal ? setShowSubDeal(false) : setShowSubDeal(true)
     };
-    //let onAddNevDeal = props.addNewDeal(props.id);
-
     return (
         <div className={style.dealBlock}>
             <div className={style.dealMain}>
@@ -41,6 +38,7 @@ const Deal = (props) => {
                     <RedactDeal make={ShowS}/>
                     <ShowDescription make={ShowS}/>
                     <MakeDoneDeal make={ShowS}/>
+                    <DeletDeal id={props.id}/>
                 </div>
             </div>
              <div  className={showSubDeal ? style.subDealsBlock : style.sadDealsBlockNone}>

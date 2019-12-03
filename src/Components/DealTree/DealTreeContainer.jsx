@@ -1,17 +1,44 @@
 import React from 'react';
 import {connect} from "react-redux";
 import DealTree from "./DealTree";
-import {addNewList, changeName, initData, saveData} from "../../Redux/DealReducer";
+import {addNewList, changeName, deleteDeal, initData, saveData} from "../../Redux/DealReducer";
 
 
 class DealTreeContainer extends React.Component {
 
+    CopyData(data) {
+        return( data.map((item) => {
+            let newItem = {...item};
+            if(item.children.length !== 0){
+                item.children = this.CopyData(item.children);
+            }
+            return newItem;
+        }))
+    };
+    deletItem(id, data) {
+        return( data.map((item)=>{
+            if(item.id.slice(-2) === id.slice(0, 2)){
+                if (id.length > 4){
+                    this.deletItem(id.slice(2), item.children);
+                }
+                else{item.children = item.children.filter(item => item.id.slice(-2) !== id.slice(2))}
+            }
+            return {...item};
+        }))
+    };
+   /* deleteList(id, data) {
+        return( data.filter((list)=>{
+            list.id !== id
+        }))
+    };*/
+
     render() {
           let testData = this.props.data;
-
-          let SAVE = () =>{this.props.saveData()};
-          let INIT = () =>{this.props.initData()};
-
+          let testCopy1 = this.CopyData(testData);
+          console.log(testCopy1);
+          let testCopy2 = this.deletItem( '3216', testCopy1);
+          console.log(testCopy2);
+          console.log(testCopy1);
 
         return (
             <>
@@ -20,10 +47,6 @@ class DealTreeContainer extends React.Component {
                     addNewList={this.props.addNewList}
                     changeName={this.props.changeName}
                 />
-                <button onClick={SAVE}
-                >SAVE</button>
-                <button onClick={INIT}
-                >INIT</button>
             </>)
     };
 }
@@ -34,7 +57,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {addNewList, changeName, initData, saveData})(DealTreeContainer);
+export default connect(mapStateToProps, {addNewList, changeName, initData, saveData, deleteDeal})(DealTreeContainer);
 
 
 /*

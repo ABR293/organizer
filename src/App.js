@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -11,13 +11,12 @@ import {initData, saveData} from "./Redux/DealReducer";
 import {connect} from "react-redux";
 
 
-class App extends React.Component {
+const App = (props) => {
 
-    componentWillMount() {
-        this.props.initData()
-    }
+    useEffect(()=> {
+        props.initData()
+    });
 
-    render() {
         return (
             <div className="app">
                 <header className='header'><Header/></header>
@@ -37,13 +36,11 @@ class App extends React.Component {
                 <footer className="footer"><Footer/></footer>
             </div>
         );
-    }
-}
+
+};
 
 let mapStateToProps = (state) => {
-    return {
-        data: state.data
-    }
+    return {}
 };
 
 export default connect(mapStateToProps, {saveData, initData})(App);

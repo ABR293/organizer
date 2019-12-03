@@ -5,7 +5,7 @@ const CHANGE_DATE = 'CHANGE-DATE';
 const MAKE_DONE = 'MAKE-DONE';
 const SAVE_CHANGES = 'SAVE-CHANGES';
 const INIT_DATA = 'INIT-DATA';
-
+const DELETE_DEAL = 'DELETE-DEAL';
 
 let initialState =
     [
@@ -137,20 +137,20 @@ export const changeName = (id, newName) => ({type:CHANGE_NAME, id:id, name:newNa
 //export const Change = (id, newName) => ({type:CHANGE_NAME, id:id, newName:newName});
 export const addNewDeal = (id) => ({type:ADD_DEAL, id:id});
 export const addNewList = () => ({type:ADD_LIST});
-
+export const deleteDeal = (id) => ({type:DELETE_DEAL, id:id});
 export const saveData = () =>  {console.log('AC SD'); return({type:SAVE_CHANGES})};
 export const initData = () =>  {console.log('AC ID'); return({type:INIT_DATA})};
 
 
-const getElement = (id, data) => {
+/*const getElement = (id, data) => {
     let item = data.find((item) => item.id.slice(-2) === id.slice(0, 2));
     if(id.length > 2){
         item = getElement( id.slice(2), item.children);
     }
     return item
-};
+};*/
 
-const CopyData = (data) => {
+/*const CopyData = (data) => {
     return( data.map((item) => {
         let newItem = {...item};
 
@@ -159,7 +159,7 @@ const CopyData = (data) => {
         }
         return newItem;
     }))
-};
+};*/
 
 const ChangeDeal = (id, changing, data) => {
     return( data.map((item)=>{
@@ -180,13 +180,12 @@ const genId = () => {
 const addSubDeal = (id, data) => {
     return (data.map((item) => {
         let newItem = {...item};
-        console.log('itemID='+item.id,'ID='+id);
-        console.log('itemID.slice(-2)='+ item.id.slice(-2),'ID.slice(0,2)='+ id.slice(0, 2));
         if (item.id.slice(-2) === id.slice(0, 2)) {
             if (id.length === 2) {
                 let subDealId = genId();
-                do {subDealId = genId();}
-                while(item.children.find(item=>item.id === subDealId) === -1);
+                while(item.children.find(item=>item.id === subDealId) === -1){
+                    subDealId = genId();
+                    if(data.length > 99){break};}
                 item.children.push({
                     id: item.id+subDealId,
                     name: 'New Deal ',
@@ -209,8 +208,10 @@ const addSubDeal = (id, data) => {
 
 const addList = (data) => {
     let listId = genId();
-    do {listId = genId();}
-    while(data.find(item=>item.id === listId) === -1);
+    while(data.find(item=>item.id === listId) === -1){
+        listId = genId();
+        if(data.length > 99){break}
+    }
     return [...data, {
         id: listId,
         name: 'New list',
@@ -228,6 +229,18 @@ const addList = (data) => {
     }];
 };
 
+const deletItem = (id, data) => {
+    return (data.map((item) => {
+        if (item.id.slice(-2) === id.slice(0, 2)) {
+            if (id.length > 4) {
+                this.deletItem(id.slice(2), item.children);
+            } else {
+                item.children = item.children.filter(item => item.id.slice(-2) !== id.slice(2))
+            }
+        }
+        return {...item};
+    }))
+};
 
 export const DealReducer = (state = initialState, action) => {
 
@@ -246,9 +259,8 @@ export const DealReducer = (state = initialState, action) => {
 
                 return ChangeDeal(action.id, changing, state)
             }
-            case CHANGE_DATE: {
-                let changing = {name: action.name};
-                return ChangeDeal(action.id, changing, state)
+            case DELETE_DEAL: {
+                return deletItem(action.id, state);
             }
             case MAKE_DONE: {
                 let changing = {done:true};
@@ -256,6 +268,7 @@ export const DealReducer = (state = initialState, action) => {
             }
             case SAVE_CHANGES: {
                 localStorage.setItem('userData', JSON.stringify(state));
+                return state
             }
             case INIT_DATA: {
                 return JSON.parse(localStorage.getItem('userData'));
