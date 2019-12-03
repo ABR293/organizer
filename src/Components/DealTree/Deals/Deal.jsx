@@ -23,9 +23,9 @@ const Deal = (props) => {
             <div className={style.dealMain}>
                 <div className={style.openBtn}>
                     {props.subdeals.length === 0 ?
-                        <AddNewDeal id ={props.id}
+                        <AddNewDeal id ={props.id} make={changeShowSubDeal}
                         /> :
-                        <OpenTree make={changeShowSubDeal}/>
+                        <OpenTree make={changeShowSubDeal} isShow={showSubDeal}/>
                     }
                 </div>
                 <div className={style.dealName}>

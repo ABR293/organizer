@@ -5,19 +5,13 @@ import 'font-awesome/css/font-awesome.min.css';
 
 const OpenTree = (props) => {
 
-
-    const [isOpen, setIsOpen] = useState(false);
-    let ChangeIsOpen = () => {
-        isOpen ? setIsOpen(false) : setIsOpen(true)
-    };
-    let Click =  () => {
-        ChangeIsOpen();
+    let Click = () => {
         props.make();
     };
 
     return (
         <>
-            {!isOpen ?
+            {!props.isShow ?
                 <button
                     className={style.button}
                     onClick={Click}

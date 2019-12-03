@@ -6,6 +6,7 @@ const MAKE_DONE = 'MAKE-DONE';
 const SAVE_CHANGES = 'SAVE-CHANGES';
 const INIT_DATA = 'INIT-DATA';
 const DELETE_DEAL = 'DELETE-DEAL';
+const DELETE_LIST = 'DELETE-LIST';
 
 let initialState =
     [
@@ -138,6 +139,7 @@ export const changeName = (id, newName) => ({type:CHANGE_NAME, id:id, name:newNa
 export const addNewDeal = (id) => ({type:ADD_DEAL, id:id});
 export const addNewList = () => ({type:ADD_LIST});
 export const deleteDeal = (id) => ({type:DELETE_DEAL, id:id});
+export const deleteList = (id) => ({type:DELETE_LIST, id:id});
 export const saveData = () =>  {console.log('AC SD'); return({type:SAVE_CHANGES})};
 export const initData = () =>  {console.log('AC ID'); return({type:INIT_DATA})};
 
@@ -229,11 +231,13 @@ const addList = (data) => {
     }];
 };
 
-const deletItem = (id, data) => {
+
+
+const deletItem = (id, data=[]) => {
     return (data.map((item) => {
         if (item.id.slice(-2) === id.slice(0, 2)) {
             if (id.length > 4) {
-                this.deletItem(id.slice(2), item.children);
+                deletItem(id.slice(2), item.children);
             } else {
                 item.children = item.children.filter(item => item.id.slice(-2) !== id.slice(2))
             }
@@ -261,6 +265,9 @@ export const DealReducer = (state = initialState, action) => {
             }
             case DELETE_DEAL: {
                 return deletItem(action.id, state);
+            }
+            case DELETE_LIST: {
+                return state.filter(item => item.id !== action.id);
             }
             case MAKE_DONE: {
                 let changing = {done:true};

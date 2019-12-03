@@ -2,7 +2,9 @@ import React from 'react';
 import style from "./ListMenu.module.css";
 import {NavLink} from "react-router-dom";
 import Label from "../Label";
-
+import {deleteList} from "../../../Redux/DealReducer";
+import {connect} from "react-redux";
+import DeleteList from "../../Common/Buttons/DeleteList";
 
 
 const ListMenu = (props) => {
@@ -17,7 +19,8 @@ const ListMenu = (props) => {
                     key={list.id}
                     id={list.id}
                 >
-                    <div><Label name={list.name} id={list.id}/></div>
+                    <Label name={list.name} id={list.id}/>
+                    <DeleteList id={list.id}/>
                 </NavLink>
             )
     });
@@ -28,5 +31,8 @@ const ListMenu = (props) => {
         </div>
     )
 };
+let mapStateToProps = () => {
+    return{}
+};
 
-export default ListMenu;
+export default connect(mapStateToProps, {deleteList})(ListMenu);

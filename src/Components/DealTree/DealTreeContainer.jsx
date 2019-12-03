@@ -34,11 +34,11 @@ class DealTreeContainer extends React.Component {
 
     render() {
           let testData = this.props.data;
-          let testCopy1 = this.CopyData(testData);
-          console.log(testCopy1);
-          let testCopy2 = this.deletItem( '3216', testCopy1);
-          console.log(testCopy2);
-          console.log(testCopy1);
+          // let testCopy1 = this.CopyData(testData);
+          // console.log(testCopy1);
+          // let testCopy2 = this.deletItem( '3216', testCopy1);
+          // console.log(testCopy2);
+          // console.log(testCopy1);
 
         return (
             <>
