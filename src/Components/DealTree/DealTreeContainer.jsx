@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import DealTree from "./DealTree";
-import {addNewList, changeName, deleteDeal, initData, saveData} from "../../Redux/DealReducer";
+import {addNewList, changeName, deleteDeal, initData} from "../../Redux/DealReducer";
 
 
 class DealTreeContainer extends React.Component {
@@ -33,6 +33,7 @@ class DealTreeContainer extends React.Component {
     };*/
 
     render() {
+
           let testData = this.props.data;
           // let testCopy1 = this.CopyData(testData);
           // console.log(testCopy1);
@@ -57,7 +58,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {addNewList, changeName, initData, saveData, deleteDeal})(DealTreeContainer);
+export default connect(mapStateToProps, {addNewList, changeName, initData, deleteDeal})(DealTreeContainer);
 
 
 /*

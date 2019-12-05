@@ -1,3 +1,9 @@
+$background1: #3f3f3f
+$border: solid 0.5px rgba(255, 0 , 0 , 0.8)
+$shadow: 0 0 12px rgb(255, 0, 0)
+$background1: #3f3f3f
+$textColor: #7b9696
+
 .menu
   margin-top: 5px
   display: flex
@@ -9,27 +15,29 @@
   margin: 5px
   width: 25px
   height: 25px
-  background-color: #09d3ac
-  border: solid 2px red
+  background-color: $background1
+  border: $border
   border-radius: 3px
-  color: #282c34
-  font-weight: bold
-  font-size: 15px
   outline-style: none
   display: flex
   justify-content: center
+  font-weight: bold
+  color: #7b9696
   align-items: center
+  text-shadow: red 0 0 5px
+  box-shadow: $shadow
 .activbtn
   margin: 5px
   width: 25px
   height: 25px
-  background-color: #d39e00
-  border: solid 2px #090909
+  background-color: #7a7a7a
+  border: $border
   border-radius: 3px
-  color: #1f2385
-  font-weight: bold
-  font-size: 15px
   outline-style: none
   display: flex
   justify-content: center
+  font-weight: bold
+  color: #b5dddd
   align-items: center
+  text-shadow: #ff1500 0 0 8px
+  box-shadow: 0 0 15px rgb(255, 13, 0)

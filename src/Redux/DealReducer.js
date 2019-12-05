@@ -1,9 +1,8 @@
 const ADD_LIST = 'ADD-LIST';
 const ADD_DEAL = 'ADD-DEAL';
 const CHANGE_NAME = 'CHANGE-NAME';
-const CHANGE_DATE = 'CHANGE-DATE';
+//const CHANGE_DATE = 'CHANGE-DATE';
 const MAKE_DONE = 'MAKE-DONE';
-const SAVE_CHANGES = 'SAVE-CHANGES';
 const INIT_DATA = 'INIT-DATA';
 const DELETE_DEAL = 'DELETE-DEAL';
 const DELETE_LIST = 'DELETE-LIST';
@@ -134,14 +133,11 @@ let initialState =
     ];
 
 export const changeName = (id, newName) => ({type:CHANGE_NAME, id:id, name:newName});
-//export const changeData = (id, newName) => ({type:CHANGE_NAME, id:id, newName:newName});
-//export const Change = (id, newName) => ({type:CHANGE_NAME, id:id, newName:newName});
 export const addNewDeal = (id) => ({type:ADD_DEAL, id:id});
 export const addNewList = () => ({type:ADD_LIST});
 export const deleteDeal = (id) => ({type:DELETE_DEAL, id:id});
 export const deleteList = (id) => ({type:DELETE_LIST, id:id});
-export const saveData = () =>  {console.log('AC SD'); return({type:SAVE_CHANGES})};
-export const initData = () =>  {console.log('AC ID'); return({type:INIT_DATA})};
+export const initData = () =>  ({type:INIT_DATA});
 
 
 /*const getElement = (id, data) => {
@@ -185,9 +181,13 @@ const addSubDeal = (id, data) => {
         if (item.id.slice(-2) === id.slice(0, 2)) {
             if (id.length === 2) {
                 let subDealId = genId();
-                while(item.children.find(item=>item.id === subDealId) === -1){
+                for(let i=0; i<99; i++){
                     subDealId = genId();
-                    if(data.length > 99){break};}
+                    if (item.children.findIndex(item=> item.id === subDealId ) === -1){
+                        break;
+                    }
+                }
+
                 item.children.push({
                     id: item.id+subDealId,
                     name: 'New Deal ',
@@ -231,8 +231,6 @@ const addList = (data) => {
     }];
 };
 
-
-
 const deletItem = (id, data=[]) => {
     return (data.map((item) => {
         if (item.id.slice(-2) === id.slice(0, 2)) {
@@ -253,7 +251,6 @@ export const DealReducer = (state = initialState, action) => {
                 return addList(state)
             }
             case ADD_DEAL: {
-                console.log(action.id, state);
                 return addSubDeal(action.id, state)
             }
             case CHANGE_NAME: {
@@ -272,10 +269,6 @@ export const DealReducer = (state = initialState, action) => {
             case MAKE_DONE: {
                 let changing = {done:true};
                 return ChangeDeal(action.id, changing, state)
-            }
-            case SAVE_CHANGES: {
-                localStorage.setItem('userData', JSON.stringify(state));
-                return state
             }
             case INIT_DATA: {
                 return JSON.parse(localStorage.getItem('userData'));

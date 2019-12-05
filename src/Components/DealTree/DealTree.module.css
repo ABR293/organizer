@@ -13,4 +13,20 @@
   bottom: 0;
   left: 2%; }
 
+button {
+  margin: 1px;
+  width: 16px;
+  height: 16px;
+  background-color: #3f3f3f;
+  border: solid 0.5px rgba(255, 0, 0, 0.8);
+  border-radius: 3px;
+  outline-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #7b9696;
+  font-size: 12px;
+  text-shadow: red 0 0 5px; }
+
 /*# sourceMappingURL=DealTree.module.css.map */

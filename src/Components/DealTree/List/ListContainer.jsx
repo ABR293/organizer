@@ -5,21 +5,9 @@ import {withRouter} from "react-router-dom";
 class ListContainer extends React.Component{
 
     render(){
-        console.log(this.props);
-        console.log(this.props.dataP);
         let id;
         if(this.props.match.params.listId){id = this.props.match.params.listId}
         if(this.props.dataP.findIndex(list => list.id === id) === -1){id = this.props.dataP[0].id}
-        else{}
-        console.log(id);
-        console.log(this.props.dataP);
-        console.log(this.props.dataP[0]);
-        console.log(this.props.dataP[0].id);
-
-            //if(this.props.dataP.findIndex(list => list.id === id) === -1 ){id = dataP[0].id}
-            //if(this.props.dataP.findIndex(list => list.id === id) === -1){id = dataP[0].id}
-
-
 
             let list = this.props.dataP.find(list => list.id === id);
         return(

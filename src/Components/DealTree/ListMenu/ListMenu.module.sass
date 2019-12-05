@@ -1,35 +1,57 @@
 $height: 20px
-$width: 70px
+$width: 80px
+$border: solid 0.5px #ff0000
+$borderRad: 5px
+$shadow: 0 0 12px rgb(255, 0, 0)
+$background1: #3f3f3f
+$background2: #7a7a7a
+$textColor: #7b9696
+$textColor2: #b5dddd
+
+%borderRad
+  border: $border
+  border-top-left-radius: $borderRad
+  border-top-right-radius: $borderRad
+
+%Colorstyle1
+  background-color: $background1
+  box-shadow: $shadow
+
+
+%item
+  width: $width
+  height: $height
+  display: flex
+  align-items: center
+  justify-content: center
+  text-decoration: none
+
+
 .listMenu
   height: 30px
   display: flex
-  align-items: center
+  flex-wrap: wrap
+  align-items: flex-end
   justify-content: flex-start
   &__item
-    width: $width
-    height: $height
-    background-color: aqua
-    border: solid 1px #090909
-    border-top-left-radius: 5px
-    border-top-right-radius: 5px
-    display: flex
-    align-items: center
-    justify-content: center
+    @extend %item
+    background: $background1
+    color: $textColor
+
   &__itemActiv
-    width: $width
-    height: $height
-    border: solid 1px #090909
-    background-color: #f231ff
-    border-top-left-radius: 5px
-    border-top-right-radius: 5px
+    @extend %item
+    background: $background2
+    color: $textColor2
+
   &__newItem
-    width: 30px
-    height: $height+2
-    border: solid 1px #090909
-    background-color: #ff9805
-    display: flex
-    justify-content: center
-    align-items: center
-    outline: none
-    border-top-left-radius: 5px
-    border-top-right-radius: 5px
+      width: 30px
+      height: $height
+      border: $border
+      background-color: $background1
+      display: flex
+      justify-content: center
+      align-items: center
+      outline: none
+      border-top-left-radius: $borderRad
+      border-top-right-radius: $borderRad
+      box-shadow: $shadow

@@ -1,10 +1,6 @@
 import React from 'react';
 import DealContainer from "../Deals/DealContainer";
 import AddNewDeal from "../../Common/Buttons/AddNewDeal";
-//import style from './List.module.css';
-//import {withRouter} from "react-router-dom";
-//import Deal from "../Deals";
-
 
 
 const List = (props) => {

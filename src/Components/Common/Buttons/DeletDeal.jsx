@@ -9,7 +9,7 @@ const DeletDeal = (props) => {
 
     return (
         <button
-            className={style.button}
+            //className={style.button}
             onClick={onclick}
         >
             <i className="fa fa-trash" aria-hidden="true"> </i>

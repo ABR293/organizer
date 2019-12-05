@@ -10,7 +10,7 @@ const DeleteList = (props) => {
 
     return (
         <button
-            className={style.button}
+            //className={style.button}
             onDoubleClick={onclick}
         >
             <i className="fa fa-trash" aria-hidden="true"> </i>

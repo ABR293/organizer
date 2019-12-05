@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -7,16 +7,21 @@ import {Route} from "react-router-dom";
 import Calendar from "./Components/Calendar";
 import Settings from "./Components/Settings";
 import DealTreeContainer from "./Components/DealTree/DealTreeContainer";
-import {initData, saveData} from "./Redux/DealReducer";
+import {initData} from "./Redux/DealReducer";
 import {connect} from "react-redux";
 
+class App extends React.Component {
 
-const App = (props) => {
+    UNSAFE_componentWillMount() {
+        this.props.initData()
+    }
 
-    useEffect(()=> {
-        props.initData()
-    });
+    componentDidUpdate() {
+        localStorage.setItem('userData', JSON.stringify(this.props.data));
+    }
 
+
+    render() {
         return (
             <div className="app">
                 <header className='header'><Header/></header>
@@ -36,11 +41,13 @@ const App = (props) => {
                 <footer className="footer"><Footer/></footer>
             </div>
         );
-
-};
+    }
+}
 
 let mapStateToProps = (state) => {
-    return {}
+    return {
+        data:state.data
+    }
 };
 
-export default connect(mapStateToProps, {saveData, initData})(App);
+export default connect(mapStateToProps, {initData})(App);
