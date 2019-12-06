@@ -1,10 +1,30 @@
-.listMenu__item, .listMenu__itemActiv {
-  width: 80px;
-  height: 20px;
+.listMenu__newItem {
   display: flex;
   align-items: center;
+  justify-content: center; }
+
+.listMenu__item, .listMenu__item__active, .listMenu__newItem {
+  display: flex;
   justify-content: center;
-  text-decoration: none; }
+  align-items: center;
+  border: solid 0.5px #ff0000;
+  text-decoration: none;
+  background: #3f3f3f;
+  color: #7b9696;
+  text-shadow: #d41500 0 0 5px;
+  box-shadow: 0 0 12px red; }
+
+.listMenu__item__active {
+  background-color: #7a7a7a;
+  color: #b5dddd;
+  text-shadow: #ff1500 0 0 8px;
+  box-shadow: 0 0 15px #ff0d00; }
+
+.listMenu__item, .listMenu__item__active, .listMenu__newItem {
+  width: 80px;
+  height: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
 
 .listMenu {
   height: 30px;
@@ -12,23 +32,8 @@
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: flex-start; }
-  .listMenu__item {
-    background: #3f3f3f;
-    color: #7b9696; }
-  .listMenu__itemActiv {
-    background: #7a7a7a;
-    color: #b5dddd; }
   .listMenu__newItem {
-    width: 30px;
-    height: 20px;
-    border: solid 0.5px #ff0000;
-    background-color: #3f3f3f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    box-shadow: 0 0 12px red; }
+    width: 25px;
+    font-size: 120%; }
 
 /*# sourceMappingURL=ListMenu.module.css.map */

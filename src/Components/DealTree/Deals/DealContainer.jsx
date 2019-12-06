@@ -16,6 +16,7 @@ class DealContainer extends React.Component{
                   subdeals = {this.props.subdeals}
                   addNewDeal = {this.props.addNewDeal}
                   changeName = {this.props.changeName}
+                  isDone = {this.props.isDone}
             />
             )
     }

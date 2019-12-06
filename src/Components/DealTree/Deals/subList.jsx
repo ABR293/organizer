@@ -1,9 +1,9 @@
 import React from 'react';
 import DealContainer from "../Deals/DealContainer";
 import AddNewDeal from "../../Common/Buttons/AddNewDeal";
-import style from "./List.module.css"
+import style from "./subList.module.css"
 
-const List = (props) => {
+const SubList = (props) => {
 
 
     let Deals = props.listBody.map((deal) => {
@@ -26,16 +26,11 @@ const List = (props) => {
                 <p>Add New Deal</p>
                 <AddNewDeal id={props.id}/>
             </div>
-            <div className={style.bottomPad}> </div>
+
         </div>
     )
 };
 
 //let  withRouterList = withRouter(List);
 
-export default List;
-
-
-
-
-
+export default SubList;

@@ -1,14 +1,12 @@
-$background1: #3f3f3f
-$border: solid 0.5px rgba(255, 0 , 0 , 0.8)
+@import ../../Common/styleVars
 
 .dealBlock
-  margin: 5px 5px 5px
-  width: 100%
+  margin: 3px 1px 0 5px
+  width: 95%
 
 .dealMain
   height: 20px
   min-width: 100px
-  max-width: 60%
   border: $border
   border-radius: 5px
   display: grid
@@ -17,88 +15,49 @@ $border: solid 0.5px rgba(255, 0 , 0 , 0.8)
   grid-template-areas: 'btn1 dealName dealMenu'
   background-color: $background1
   box-shadow: 0 0 12px rgb(255, 0, 0)
-
-  color: #7b9696
-  font-weight: bold
-  font-stretch: extra-expanded
-  text-shadow: red 0 0 5px
+  @extend  %text
   button
-    margin: 1px
-    width: 16px
-    height: 16px
-    background-color: $background1
-    border: $border
-    border-radius: 3px
-    outline-style: none
-    display: flex
-    justify-content: center
-    align-items: center
-
-    font-weight: bold
-    color: #7b9696
-    font-size: 12px
-    text-shadow: red 0 0 5px
+    @extend %button
 
 .subDealsBlock
+  width: 100%
   margin-left: 10px
+  border-left: $border2
 
-  border-left: solid 0.5px red
 
 .sadDealsBlockNone
-  margin-left: 8px
-  height: 0
+  margin-left: 10px
   display: none
 
 .openBtn
   grid-area: btn1
-  display: flex
-  justify-content: center
-  align-items: center
+  @extend %centralization
 
 .dealName
   grid-area: dealName
   display: flex
-  justify-content: center
+  justify-content: flex-start
   align-items: center
 
 .dealMenu
   grid-area: dealMenu
-  display: flex
-  justify-content: center
-  align-items: center
-
-
+  @extend %centralization
 
 .dealMainDone
   height: 20px
   min-width: 100px
-  max-width: 60%
-  border: $border
+  border: $border3
   border-radius: 5px
   display: grid
   grid-template-rows: 20px
   grid-template-columns: 20px auto 76px
   grid-template-areas: 'btn1 dealName dealMenu'
   background-color: $background1
-  box-shadow: 0 0 12px rgb(140, 0, 0)
-
-  color: #526363
-  font-weight: bold
-  font-stretch: extra-expanded
-  text-shadow: #8a0000 0 0 5px
+  box-shadow: 0 0 12px rgb(120, 0, 0)
+  @extend %text
+  color: #282c34
   button
-    margin: 1px
-    width: 16px
-    height: 16px
-    background-color: $background1
-    border: $border
-    border-radius: 3px
-    outline-style: none
-    display: flex
-    justify-content: center
-    align-items: center
+    @extend %button
+    border: $border3
+    color: #282c34
 
-    font-weight: bold
-    color: #5a6e6e
-    font-size: 12px
-    text-shadow: #880000 0 0 5px

@@ -15,7 +15,7 @@ const ListMenu = (props) => {
                 <NavLink
                     to={'/dealtree/'+ list.id}
                     className={style.listMenu__item}
-                    activeClassName={style.listMenu__itemActiv}
+                    activeClassName={style.listMenu__item__active}
                     key={list.id}
                     id={list.id}
                 >
@@ -27,7 +27,7 @@ const ListMenu = (props) => {
     return(
         <div className={style.listMenu}>
             {Lists}
-            <button className={style.listMenu__newItem} onClick={props.addNewList} > + </button>
+            <span className={style.listMenu__newItem} onClick={props.addNewList} > <p>+</p> </span>
         </div>
     )
 };

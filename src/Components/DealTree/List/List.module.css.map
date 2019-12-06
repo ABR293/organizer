@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,KAAK;EACH,KAAK,EAAE,GAAG;;AACZ,IAAI;EACF,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,gBAAgB;EACxB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,UAAU;EAC3B,WAAW,EAAE,MAAM;EACnB,SAAS,EAAE,IAAI;EACf,MAAC;IACC,MAAM,EAAE,eAAe;;AAC3B,UAAU;EACR,MAAM,EAAE,KAAK",
+"sources": ["List.module.sass"],
 "names": [],
 "file": "List.module.css"
 }

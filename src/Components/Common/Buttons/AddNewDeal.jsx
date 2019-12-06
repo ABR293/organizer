@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './Button.module.css'
 import {connect} from "react-redux";
 import {addNewDeal} from "../../../Redux/DealReducer";
 

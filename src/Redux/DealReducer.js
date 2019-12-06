@@ -3,6 +3,7 @@ const ADD_DEAL = 'ADD-DEAL';
 const CHANGE_NAME = 'CHANGE-NAME';
 //const CHANGE_DATE = 'CHANGE-DATE';
 const MAKE_DONE = 'MAKE-DONE';
+const CANCEL_DONE = 'CANCEL-DONE';
 const INIT_DATA = 'INIT-DATA';
 const DELETE_DEAL = 'DELETE-DEAL';
 const DELETE_LIST = 'DELETE-LIST';
@@ -138,6 +139,8 @@ export const addNewList = () => ({type:ADD_LIST});
 export const deleteDeal = (id) => ({type:DELETE_DEAL, id:id});
 export const deleteList = (id) => ({type:DELETE_LIST, id:id});
 export const initData = () =>  ({type:INIT_DATA});
+export const makeDone = (id) => ({type:MAKE_DONE, id:id});
+export const cancelDone = (id) => ({type:CANCEL_DONE, id:id});
 
 
 /*const getElement = (id, data) => {
@@ -162,6 +165,7 @@ export const initData = () =>  ({type:INIT_DATA});
 const ChangeDeal = (id, changing, data) => {
     return( data.map((item)=>{
         let newItem = {...item};
+        console.log(item.id, id);
         if(item.id.slice(-2) === id.slice(0, 2)){
             id.length === 2
                 ? newItem = {...item, ...changing}
@@ -267,7 +271,11 @@ export const DealReducer = (state = initialState, action) => {
                 return state.filter(item => item.id !== action.id);
             }
             case MAKE_DONE: {
-                let changing = {done:true};
+                let changing = {done: true};
+                return ChangeDeal(action.id, changing, state)
+            }
+            case CANCEL_DONE: {
+                let changing = {done: false};
                 return ChangeDeal(action.id, changing, state)
             }
             case INIT_DATA: {

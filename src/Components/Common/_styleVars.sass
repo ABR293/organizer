@@ -1,0 +1,77 @@
+//Vars
+
+$border: solid 0.5px #ff0000
+$shadow1: 0 0 12px rgb(255, 0, 0)
+
+$border1: solid 0.5px rgba(255, 0 , 0 , 0.8)
+$border2: solid 0.5px #ff0000
+$border3: solid 0.5px #690000
+
+$boxShadow1: 0 0 12px rgb(255, 0, 0)
+$boxShadow2: 0 0 15px rgb(255, 13, 0)
+
+$background1: #3f3f3f
+$background2: #7a7a7a
+$background3: #c10000
+
+$textColor1: #7b9696
+$textColor2: #b5dddd
+
+$textShadow1: #d41500 0 0 5px
+$textShadow2: #ff1500 0 0 8px
+
+
+//Classes
+
+%interfaceElement
+  border-radius: 5px
+  height: 100%
+  width: 100%
+
+  //changing
+  background-color: $background1
+
+
+%text //changing
+  color: $textColor1
+  font-weight: bold
+  font-stretch: extra-expanded
+  text-shadow: red 0 0 5px
+
+
+%centralization
+  display: flex
+  align-items: center
+  justify-content: center
+
+%button
+  margin: 1px
+  width: 16px
+  height: 16px
+  border-radius: 3px
+  outline-style: none
+  @extend %centralization
+
+  //changing
+  @extend %text
+  background-color: $background1
+  border: $border
+
+
+%menuItem
+  display: flex
+  justify-content: center
+  align-items: center
+  border: $border
+  text-decoration: none
+  //changing
+  background: $background1
+  color: $textColor1
+  text-shadow: $textShadow1
+  box-shadow: $boxShadow1
+
+%active //changing
+  background-color: $background2
+  color: $textColor2
+  text-shadow: $textShadow2
+  box-shadow: $boxShadow2

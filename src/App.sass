@@ -1,4 +1,4 @@
-@import _styleConstants.sass
+@import Components/Common/styleVars
 
 .app
   position: absolute
@@ -20,10 +20,12 @@
   align-items: start
   align-content: space-around
   justify-items: stretch
-  background-color: $background2
-  border: solid 3px $background2
+  background-color: $background3
+  border: solid 3px $background3
   @extend %text
-
+  button
+    margin: 1px
+    @extend %button
 
 .header
   grid-area: header
@@ -39,6 +41,7 @@
 .content
   grid-area: content
   @extend %interfaceElement
+  @extend %text
 
 .footer
   grid-area: footer

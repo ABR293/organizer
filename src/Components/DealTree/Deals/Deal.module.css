@@ -1,96 +1,74 @@
-.dealBlock {
-  margin: 5px 5px 5px;
-  width: 100%; }
-
-.dealMain {
-  height: 20px;
-  min-width: 100px;
-  max-width: 60%;
-  border: solid 0.5px rgba(255, 0, 0, 0.8);
-  border-radius: 5px;
-  display: grid;
-  grid-template-rows: 20px;
-  grid-template-columns: 20px auto 76px;
-  grid-template-areas: "btn1 dealName dealMenu";
-  background-color: #3f3f3f;
-  box-shadow: 0 0 12px red;
+.dealMain button, .dealMainDone button, .dealMain, .dealMainDone {
   color: #7b9696;
   font-weight: bold;
   font-stretch: extra-expanded;
   text-shadow: red 0 0 5px; }
-  .dealMain button {
-    margin: 1px;
-    width: 16px;
-    height: 16px;
-    background-color: #3f3f3f;
-    border: solid 0.5px rgba(255, 0, 0, 0.8);
-    border-radius: 3px;
-    outline-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: #7b9696;
-    font-size: 12px;
-    text-shadow: red 0 0 5px; }
 
-.subDealsBlock {
-  margin-left: 10px;
-  border-left: solid 0.5px red; }
-
-.sadDealsBlockNone {
-  margin-left: 8px;
-  height: 0;
-  display: none; }
-
-.openBtn {
-  grid-area: btn1;
+.dealMain button, .dealMainDone button, .openBtn, .dealMenu {
   display: flex;
-  justify-content: center;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
 
-.dealName {
-  grid-area: dealName;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+.dealMain button, .dealMainDone button {
+  margin: 1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  outline-style: none;
+  background-color: #3f3f3f;
+  border: solid 0.5px #ff0000; }
 
-.dealMenu {
-  grid-area: dealMenu;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+.dealBlock {
+  margin: 3px 1px 0 5px;
+  width: 95%; }
 
-.dealMainDone {
+.dealMain {
   height: 20px;
   min-width: 100px;
-  max-width: 60%;
-  border: solid 0.5px rgba(255, 0, 0, 0.8);
+  border: solid 0.5px #ff0000;
   border-radius: 5px;
   display: grid;
   grid-template-rows: 20px;
   grid-template-columns: 20px auto 76px;
   grid-template-areas: "btn1 dealName dealMenu";
   background-color: #3f3f3f;
-  box-shadow: 0 0 12px #8c0000;
-  color: #526363;
-  font-weight: bold;
-  font-stretch: extra-expanded;
-  text-shadow: #8a0000 0 0 5px; }
+  box-shadow: 0 0 12px red; }
+
+.subDealsBlock {
+  width: 100%;
+  margin-left: 10px;
+  border-left: solid 0.5px #ff0000; }
+
+.sadDealsBlockNone {
+  margin-left: 10px;
+  display: none; }
+
+.openBtn {
+  grid-area: btn1; }
+
+.dealName {
+  grid-area: dealName;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+
+.dealMenu {
+  grid-area: dealMenu; }
+
+.dealMainDone {
+  height: 20px;
+  min-width: 100px;
+  border: solid 0.5px #690000;
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: 20px;
+  grid-template-columns: 20px auto 76px;
+  grid-template-areas: "btn1 dealName dealMenu";
+  background-color: #3f3f3f;
+  box-shadow: 0 0 12px #780000;
+  color: #282c34; }
   .dealMainDone button {
-    margin: 1px;
-    width: 16px;
-    height: 16px;
-    background-color: #3f3f3f;
-    border: solid 0.5px rgba(255, 0, 0, 0.8);
-    border-radius: 3px;
-    outline-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: #5a6e6e;
-    font-size: 12px;
-    text-shadow: #880000 0 0 5px; }
+    border: solid 0.5px #690000;
+    color: #282c34; }
 
 /*# sourceMappingURL=Deal.module.css.map */

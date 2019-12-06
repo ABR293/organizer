@@ -6,11 +6,13 @@ import ShowDescription from "../../Common/Buttons/ShowDescription";
 import MakeDoneDeal from "../../Common/Buttons/MakeDone";
 import OpenTree from "../../Common/Buttons/OpenTree";
 import AddNewDeal from "../../Common/Buttons/AddNewDeal";
-import List from "../List/List";
 import Label from "../Label";
 import DeletDeal from "../../Common/Buttons/DeletDeal";
+import CancelDoneDeal from "../../Common/Buttons/CanceleDone";
+import SubList from "./subList";
 
 const Deal = (props) => {
+    console.log(props);
     let ShowS = () => {console.log(showSubDeal)};
 
     let [showSubDeal, setShowSubDeal] = useState(false);
@@ -20,7 +22,7 @@ const Deal = (props) => {
     };
     return (
         <div className={style.dealBlock}>
-            <div className={style.dealMain}>
+            <div className={!props.isDone ? style.dealMain : style.dealMainDone} >
                 <div className={style.openBtn}>
                     {props.subdeals.length === 0 ?
                         <AddNewDeal id ={props.id} make={changeShowSubDeal}
@@ -35,14 +37,14 @@ const Deal = (props) => {
                     />
                 </div>
                 <div className={style.dealMenu}>
-                    <RedactDeal make={ShowS}/>
-                    <ShowDescription make={ShowS}/>
-                    <MakeDoneDeal make={ShowS}/>
+                    {! props.isDone ? <RedactDeal make={ShowS}/> : <RedactDeal disabled='disabled'/>}
+                    {! props.isDone ? <ShowDescription make={ShowS}/> : <ShowDescription disabled='disabled'/>}
+                    {! props.isDone ? <MakeDoneDeal id={props.id}/> : <CancelDoneDeal id={props.id}/>}
                     <DeletDeal id={props.id}/>
                 </div>
             </div>
              <div  className={showSubDeal ? style.subDealsBlock : style.sadDealsBlockNone}>
-                 {props.subdeals.length === 0 ? null : <List id={props.id} listBody={props.subdeals}/>}
+                 {props.subdeals.length === 0 ? null : <SubList id={props.id} listBody={props.subdeals}/>}
                </div>
         </div>
     )
