@@ -3,12 +3,14 @@ import style from './DealTree.module.css'
 import {Route} from "react-router-dom";
 import ListMenu from "./ListMenu";
 import ListContainer from "./List/ListContainer";
+import classNames from "classnames";
+import theme from "../Common/Theme";
 
 
 const DealTree = (props) => {
 
     return (
-        <div className={style.block}>
+        <div className={classNames(style.block, theme.scrollbar)}>
             <div className={style.list}>
                 <Route path={'/dealtree/:listId?'}
                        render={() => <ListContainer dataP={props.data}/>}

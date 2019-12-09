@@ -10,9 +10,10 @@ import Label from "../Label";
 import DeletDeal from "../../Common/Buttons/DeletDeal";
 import CancelDoneDeal from "../../Common/Buttons/CanceleDone";
 import SubList from "./subList";
+import classNames from "classnames";
+import theme from "../../Common/Theme";
 
 const Deal = (props) => {
-    console.log(props);
     let ShowS = () => {console.log(showSubDeal)};
 
     let [showSubDeal, setShowSubDeal] = useState(false);
@@ -22,9 +23,10 @@ const Deal = (props) => {
     };
     return (
         <div className={style.dealBlock}>
-            <div className={!props.isDone ? style.dealMain : style.dealMainDone} >
+            <div className={!props.isDone ? classNames(style.dealMain, theme.dealMain) :classNames(style.dealMain, theme.dealMainDone)} >
                 <div className={style.openBtn}>
-                    {props.subdeals.length === 0 ?
+                    {
+                        props.subdeals.length === 0 ?
                         <AddNewDeal id ={props.id} make={changeShowSubDeal}
                         /> :
                         <OpenTree make={changeShowSubDeal} isShow={showSubDeal}/>
@@ -43,7 +45,7 @@ const Deal = (props) => {
                     <DeletDeal id={props.id}/>
                 </div>
             </div>
-             <div  className={showSubDeal ? style.subDealsBlock : style.sadDealsBlockNone}>
+             <div  className={showSubDeal ? classNames(style.subDealsBlock, theme.subDealsBlock): style.sadDealsBlockNone}>
                  {props.subdeals.length === 0 ? null : <SubList id={props.id} listBody={props.subdeals}/>}
                </div>
         </div>

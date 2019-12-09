@@ -1,21 +1,11 @@
-.menu__item, .menu__item__active {
+.menu__item {
   display: flex;
   justify-content: center;
   align-items: center;
   border: solid 0.5px #ff0000;
-  text-decoration: none;
-  background: #3f3f3f;
-  color: #7b9696;
-  text-shadow: #d41500 0 0 5px;
-  box-shadow: 0 0 12px red; }
+  text-decoration: none; }
 
-.menu__item__active {
-  background-color: #7a7a7a;
-  color: #b5dddd;
-  text-shadow: #ff1500 0 0 8px;
-  box-shadow: 0 0 15px #ff0d00; }
-
-.menu__item, .menu__item__active {
+.menu__item {
   margin: 5px;
   width: 25px;
   height: 25px;

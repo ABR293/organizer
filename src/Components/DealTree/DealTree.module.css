@@ -3,17 +3,6 @@
   height: 99%;
   margin: 5px;
   position: relative; }
-  .block ::-webkit-scrollbar {
-    width: 17px; }
-  .block ::-webkit-scrollbar-track-piece {
-    background-color: red;
-    border: solid 7px #3f3f3f; }
-  .block ::-webkit-scrollbar-thumb {
-    height: 20px;
-    background-color: #3f3f3f;
-    border: solid 1px red;
-    border-radius: 6px;
-    box-shadow: inset 0 0 5px #ff0600; }
 
 .list {
   width: 100%;

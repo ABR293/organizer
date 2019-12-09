@@ -3,26 +3,18 @@
 .dealBlock
   margin: 3px 1px 0 5px
   width: 95%
-
 .dealMain
   height: 20px
   min-width: 100px
-  border: $border
   border-radius: 5px
   display: grid
   grid-template-rows: 20px
   grid-template-columns: 20px auto 76px
   grid-template-areas: 'btn1 dealName dealMenu'
-  background-color: $background1
-  box-shadow: 0 0 12px rgb(255, 0, 0)
-  @extend  %text
-  button
-    @extend %button
 
 .subDealsBlock
   width: 100%
   margin-left: 10px
-  border-left: $border2
 
 
 .sadDealsBlockNone
@@ -43,21 +35,6 @@
   grid-area: dealMenu
   @extend %centralization
 
-.dealMainDone
-  height: 20px
-  min-width: 100px
-  border: $border3
-  border-radius: 5px
-  display: grid
-  grid-template-rows: 20px
-  grid-template-columns: 20px auto 76px
-  grid-template-areas: 'btn1 dealName dealMenu'
-  background-color: $background1
-  box-shadow: 0 0 12px rgb(120, 0, 0)
-  @extend %text
-  color: #282c34
-  button
-    @extend %button
-    border: $border3
-    color: #282c34
+
+
 

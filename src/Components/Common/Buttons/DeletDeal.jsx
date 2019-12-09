@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './Button.module.css'
 import {deleteDeal} from "../../../Redux/DealReducer";
 import {connect} from "react-redux";
 
@@ -9,7 +8,6 @@ const DeletDeal = (props) => {
 
     return (
         <button
-            //className={style.button}
             onClick={onclick}
         >
             <i className="fa fa-trash" aria-hidden="true"> </i>

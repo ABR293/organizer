@@ -5,6 +5,8 @@ import Label from "../Label";
 import {deleteList} from "../../../Redux/DealReducer";
 import {connect} from "react-redux";
 import DeleteList from "../../Common/Buttons/DeleteList";
+import classNames from "classnames";
+import theme from "../../Common/Theme";
 
 
 const ListMenu = (props) => {
@@ -14,8 +16,8 @@ const ListMenu = (props) => {
         return(
                 <NavLink
                     to={'/dealtree/'+ list.id}
-                    className={style.listMenu__item}
-                    activeClassName={style.listMenu__item__active}
+                    className={classNames(style.listMenu__item, theme.menuItem)}
+                    activeClassName={classNames(style.listMenu__item, theme.menuItemActive)}
                     key={list.id}
                     id={list.id}
                 >

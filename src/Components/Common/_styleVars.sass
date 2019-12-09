@@ -20,26 +20,13 @@ $textColor2: #b5dddd
 $textShadow1: #d41500 0 0 5px
 $textShadow2: #ff1500 0 0 8px
 
-
-//Classes
-
-%interfaceElement
+%interfaceElement  //const
   border-radius: 5px
   height: 100%
   width: 100%
 
-  //changing
-  background-color: $background1
 
-
-%text //changing
-  color: $textColor1
-  font-weight: bold
-  font-stretch: extra-expanded
-  text-shadow: red 0 0 5px
-
-
-%centralization
+%centralization //const
   display: flex
   align-items: center
   justify-content: center
@@ -52,11 +39,6 @@ $textShadow2: #ff1500 0 0 8px
   outline-style: none
   @extend %centralization
 
-  //changing
-  @extend %text
-  background-color: $background1
-  border: $border
-
 
 %menuItem
   display: flex
@@ -64,14 +46,3 @@ $textShadow2: #ff1500 0 0 8px
   align-items: center
   border: $border
   text-decoration: none
-  //changing
-  background: $background1
-  color: $textColor1
-  text-shadow: $textShadow1
-  box-shadow: $boxShadow1
-
-%active //changing
-  background-color: $background2
-  color: $textColor2
-  text-shadow: $textShadow2
-  box-shadow: $boxShadow2
