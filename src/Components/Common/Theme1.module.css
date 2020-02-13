@@ -33,17 +33,19 @@
 
 .menu {
   background-color: #3f3f3f; }
-  .menu__menuItem {
-    background: #3f3f3f;
-    color: #7b9696;
-    text-shadow: #d41500 0 0 5px;
-    box-shadow: 0 0 12px red;
-    border: solid 0.5px red; }
-  .menu__menuItemActive {
-    background-color: #7a7a7a;
-    color: #b5dddd;
-    text-shadow: #ff1500 0 0 8px;
-    box-shadow: 0 0 15px #ff0d00; }
+
+.menuItem {
+  background: #3f3f3f;
+  color: #7b9696;
+  text-shadow: #d41500 0 0 5px;
+  box-shadow: 0 0 12px red;
+  border: solid 0.5px red; }
+
+.menuItemActive {
+  background-color: #7a7a7a;
+  color: #b5dddd;
+  text-shadow: #ff1500 0 0 8px;
+  box-shadow: 0 0 15px #ff0d00; }
 
 .content {
   background-color: #3f3f3f; }

@@ -11,12 +11,14 @@ class DealContainer extends React.Component{
     render(){
 
         return(
-            <Deal name={this.props.name}
-                  id={this.props.id}
-                  subdeals = {this.props.subdeals}
-                  addNewDeal = {this.props.addNewDeal}
-                  changeName = {this.props.changeName}
-                  isDone = {this.props.isDone}
+            <Deal
+                name={this.props.name}
+                id={this.props.id}
+                subdeals = {this.props.subdeals}
+                addNewDeal = {this.props.addNewDeal}
+                changeName = {this.props.changeName}
+                isDone = {this.props.isDone}
+                theme={this.props.theme}
             />
             )
     }
@@ -24,7 +26,7 @@ class DealContainer extends React.Component{
 
 let mapStateToProps = (state) => {
     return {
-        state
+        theme: state.settings.theme
     }
 };
 

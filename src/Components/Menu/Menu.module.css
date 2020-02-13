@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 0.5px #ff0000;
   text-decoration: none; }
 
 .menu__item {

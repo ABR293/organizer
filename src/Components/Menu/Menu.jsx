@@ -3,10 +3,10 @@ import style from './Menu.module.css';
 import 'font-awesome/css/font-awesome.min.css';
 import {NavLink} from "react-router-dom";
 import classNames from "classnames";
-import theme from "../Common/Theme";
 
-const Menu = () => {
+const Menu = (props) => {
 
+    let theme = props.theme;
 
     return (
         <nav className={style.menu}>

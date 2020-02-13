@@ -1,6 +1,7 @@
 import React from 'react';
 import List from "./List";
 import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
 class ListContainer extends React.Component{
 
@@ -12,6 +13,7 @@ class ListContainer extends React.Component{
             let list = this.props.dataP.find(list => list.id === id);
         return(
             <List
+                theme={this.props.theme}
                 id={id}
                 listBody={list.children}
             />
@@ -19,5 +21,11 @@ class ListContainer extends React.Component{
     }
 }
 
-let ListContainerWithRouter = withRouter(ListContainer);
-export default ListContainerWithRouter;
+let mapStateToProps = (state) => {
+    return {
+        theme: state.settings.theme
+    }
+};
+
+export default withRouter(connect(mapStateToProps,)(ListContainer));
+

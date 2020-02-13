@@ -11,6 +11,7 @@ import theme from "../../Common/Theme";
 
 const ListMenu = (props) => {
 
+    //let theme = props.theme;
 
     let Lists = props.data.map((list)=>{
         return(
@@ -33,8 +34,10 @@ const ListMenu = (props) => {
         </div>
     )
 };
-let mapStateToProps = () => {
-    return{}
+let mapStateToProps = (state) => {
+    return{
+        theme: state.settings.theme
+    }
 };
 
 export default connect(mapStateToProps, {deleteList})(ListMenu);

@@ -32,7 +32,7 @@ class App extends React.Component {
         return (
             <div className={classNames(style.app, theme.app)}>
                 <header className={classNames(style.header, theme.header)}><Header/></header>
-                <nav className={classNames(style.menu, theme.menu)}><Menu/></nav>
+                <nav className={classNames(style.menu, theme.menu)}><Menu theme={theme}/></nav>
                 <div className={classNames(style.content, theme.content)}>
                     <Route path='/calendar'
                            render={() => <Calendar/>}
@@ -41,7 +41,7 @@ class App extends React.Component {
                            render={() => <DealTreeContainer/>}
                     />
                     <Route path='/Settings'
-                           render={() => <SettingsContainer/>}
+                           render={() => <SettingsContainer />}
                     />
                 </div>
 
