@@ -1,0 +1,111 @@
+
+
+$border: solid 0.5px #ff0000
+$shadow1: 0 0 12px rgb(255, 0, 0)
+
+
+
+$boxShadow1: 0 0 12px rgb(255, 0, 0)
+$boxShadow2: 0 0 15px rgb(255, 13, 0)
+$scrollbarBoxShadow: inset 0 0 5px rgb(255, 6, 0)
+$scrollbarBackground: rgb(255, 0, 0)
+
+$background1: #3f3f3f
+$background2: #7a7a7a
+$background3: #c10000
+
+$border1: solid 0.5px rgba(255, 0 , 0 , 0.8)
+$border2: solid 0.5px #ff0000
+$border3: solid 0.5px #690000
+$scrollbarBorder: solid 7px $background1
+
+$textColor1: #7b9696
+$textColor2: #b5dddd
+$textColorHeader:#ffa84d
+
+$textShadow1: #d41500 0 0 5px
+$textShadow2: #ff1500 0 0 8px
+
+$dealDoneBox-shadow: 0 0 12px rgb(120, 0, 0)
+$dealDoneTextColor: #282c34
+
+
+
+%text
+  color: $textColor1
+  font-weight: bold
+  font-stretch: extra-expanded
+  text-shadow: red 0 0 5px
+
+%button
+  @extend %text
+  background-color: $background1
+  border: $border
+
+
+.app
+  background-color: $background3
+  border: solid 3px $background3
+  @extend %text
+  button
+    margin: 1px
+    @extend %button
+.header
+  background-color: $background1
+  color: $textColorHeader
+  font-family: GothicI
+.menu
+  background-color: $background1
+.content
+  background-color: $background1
+  @extend %text
+.footer
+  background-color: $background1
+
+//Menu
+
+.menuItem
+  background: $background1
+  color: $textColor1
+  text-shadow: $textShadow1
+  box-shadow: $boxShadow1
+  border: $border
+.menuItemActive
+  background-color: $background2
+  color: $textColor2
+  text-shadow: $textShadow2
+  box-shadow: $boxShadow2
+
+
+.scrollbar
+  ::-webkit-scrollbar
+    width: 17px
+  ::-webkit-scrollbar-thumb
+    height: 20px
+    border-radius: 6px
+  ::-webkit-scrollbar-track-piece
+    background-color: $scrollbarBackground
+    border: $scrollbarBorder
+  ::-webkit-scrollbar-thumb
+    background-color: $background1
+    border: $border2
+    box-shadow: $scrollbarBoxShadow
+.dealMain
+  border: $border
+  background-color: $background1
+  box-shadow: $boxShadow1
+  @extend  %text
+  button
+    @extend %button
+.dealMainDone
+  border: $border3
+  background-color: $background1
+  box-shadow: $dealDoneBox-shadow
+  @extend %text
+  color: $dealDoneTextColor
+  button
+    @extend %button
+    border: $border3
+    color: $dealDoneTextColor
+.subDealsBlock
+  border-left: $border2

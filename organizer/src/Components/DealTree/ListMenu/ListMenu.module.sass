@@ -1,0 +1,22 @@
+@import ../../Common/styleVars
+
+%listMenuItem
+  @extend %menuItem
+  width: 80px
+  height: 20px
+  border-top-left-radius: 5px
+  border-top-right-radius: 5px
+.listMenu
+  height: 30px
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-end
+  justify-content: flex-start
+  &__item
+    @extend %listMenuItem
+  &__newItem
+    @extend %listMenuItem
+    @extend %centralization
+    width: 25px
+    font-size: 120%
+

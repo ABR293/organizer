@@ -1,0 +1,74 @@
+.app button, .dealMain button, .dealMainDone button, .app, .content, .dealMain, .dealMainDone {
+  color: #7b9696;
+  font-weight: bold;
+  font-stretch: extra-expanded;
+  text-shadow: red 0 0 5px; }
+
+.app button, .dealMain button, .dealMainDone button {
+  background-color: #3f3f3f;
+  border: solid 0.5px #ff0000; }
+
+.app {
+  background-color: #c10000;
+  border: solid 3px #c10000; }
+  .app button {
+    margin: 1px; }
+
+.header {
+  background-color: #3f3f3f;
+  color: #ffa84d;
+  font-family: GothicI; }
+
+.menu {
+  background-color: #3f3f3f; }
+
+.content {
+  background-color: #3f3f3f; }
+
+.footer {
+  background-color: #3f3f3f; }
+
+.menuItem {
+  background: #3f3f3f;
+  color: #7b9696;
+  text-shadow: #d41500 0 0 5px;
+  box-shadow: 0 0 12px red;
+  border: solid 0.5px #ff0000; }
+
+.menuItemActive {
+  background-color: #7a7a7a;
+  color: #b5dddd;
+  text-shadow: #ff1500 0 0 8px;
+  box-shadow: 0 0 15px #ff0d00; }
+
+.scrollbar ::-webkit-scrollbar {
+  width: 17px; }
+.scrollbar ::-webkit-scrollbar-thumb {
+  height: 20px;
+  border-radius: 6px; }
+.scrollbar ::-webkit-scrollbar-track-piece {
+  background-color: red;
+  border: solid 7px #3f3f3f; }
+.scrollbar ::-webkit-scrollbar-thumb {
+  background-color: #3f3f3f;
+  border: solid 0.5px #ff0000;
+  box-shadow: inset 0 0 5px #ff0600; }
+
+.dealMain {
+  border: solid 0.5px #ff0000;
+  background-color: #3f3f3f;
+  box-shadow: 0 0 12px red; }
+
+.dealMainDone {
+  border: solid 0.5px #690000;
+  background-color: #3f3f3f;
+  box-shadow: 0 0 12px #780000;
+  color: #282c34; }
+  .dealMainDone button {
+    border: solid 0.5px #690000;
+    color: #282c34; }
+
+.subDealsBlock {
+  border-left: solid 0.5px #ff0000; }
+
+/*# sourceMappingURL=Theme5.module.css.map */

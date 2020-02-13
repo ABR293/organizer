@@ -1,0 +1,47 @@
+//Vars
+
+$border: solid 0.5px #ff0000
+$shadow1: 0 0 12px rgb(255, 0, 0)
+
+$border1: solid 0.5px rgba(255, 0 , 0 , 0.8)
+$border2: solid 0.5px #ff0000
+$border3: solid 0.5px #690000
+
+$boxShadow1: 0 0 12px rgb(255, 0, 0)
+$boxShadow2: 0 0 15px rgb(255, 13, 0)
+
+$background1: #3f3f3f
+$background2: #7a7a7a
+$background3: #c10000
+
+$textColor1: #7b9696
+$textColor2: #b5dddd
+
+$textShadow1: #d41500 0 0 5px
+$textShadow2: #ff1500 0 0 8px
+
+%interfaceElement  //const
+  border-radius: 5px
+  height: 100%
+  width: 100%
+
+
+%centralization //const
+  display: flex
+  align-items: center
+  justify-content: center
+
+%button
+  margin: 1px
+  width: 16px
+  height: 16px
+  border-radius: 3px
+  outline-style: none
+  @extend %centralization
+
+
+%menuItem
+  display: flex
+  justify-content: center
+  align-items: center
+  text-decoration: none

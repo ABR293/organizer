@@ -1,0 +1,40 @@
+@import Components/Common/styleVars
+
+.app
+  position: absolute
+  bottom: 5px
+  top: 5px
+  left: 3%
+  right: 3%
+  height: 95%
+  width: 94%
+  min-height: 500px
+  min-width: 500px
+  margin: 1% auto
+  display: grid
+  grid-template-columns: 50px 1fr
+  grid-template-rows: 9% 84% 5%
+  grid-template-areas: "header header" "menu content" "footer footer"
+  grid-gap: 3px 3px
+  justify-content: space-around
+  align-items: start
+  align-content: space-around
+  justify-items: stretch
+  button
+    @extend %button
+.header
+  grid-area: header
+  @extend %interfaceElement
+  @extend %centralization
+.menu
+  grid-area: menu
+  @extend %interfaceElement
+.content
+  grid-area: content
+  @extend %interfaceElement
+.footer
+  grid-area: footer
+  @extend %interfaceElement
+  @extend %centralization
+  font-size: 12px
+

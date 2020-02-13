@@ -1,0 +1,28 @@
+.listMenu__newItem {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.listMenu__item, .listMenu__newItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; }
+
+.listMenu__item, .listMenu__newItem {
+  width: 80px;
+  height: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.listMenu {
+  height: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-start; }
+  .listMenu__newItem {
+    width: 25px;
+    font-size: 120%; }
+
+/*# sourceMappingURL=ListMenu.module.css.map */

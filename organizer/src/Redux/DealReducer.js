@@ -1,7 +1,8 @@
 const ADD_LIST = 'ADD-LIST';
 const ADD_DEAL = 'ADD-DEAL';
 const CHANGE_NAME = 'CHANGE-NAME';
-//const CHANGE_DATE = 'CHANGE-DATE';
+const CHANGE_START_DATE = 'CHANGE-START-DATE';
+const CHANGE_ENDING_DATE = 'CHANGE-ENDING-DATE';
 const MAKE_DONE = 'MAKE-DONE';
 const CANCEL_DONE = 'CANCEL-DONE';
 const INIT_DATA = 'INIT-DATA';
@@ -20,7 +21,7 @@ let initialState =
                     description: 'This is first test Deal for example',
                     importance: false,
                     startDate: 1,
-                    deadLine: 2,
+                    endingDate: 2,
                     isShowInCalendar: false,
                     done: false,
                     children: [
@@ -30,7 +31,7 @@ let initialState =
                             description: 'This is therd test Deal for example',
                             importance: false,
                             startDate: 1,
-                            deadLine: 2,
+                            endingDate: 2,
                             isShowInCalendar: false,
                             done: false,
                             children: []
@@ -43,7 +44,7 @@ let initialState =
                     description: 'This is second test Deal for example',
                     importance: false,
                     startDate: 1,
-                    deadLine: 2,
+                    endingDate: 2,
                     isShowInCalendar: false,
                     done: false,
                     children: []
@@ -60,7 +61,7 @@ let initialState =
                     description: 'This is first test Deal for example',
                     importance: false,
                     startDate: 1,
-                    deadLine: 2,
+                    endingDate: 2,
                     isShowInCalendar: false,
                     done: false,
                     children: [
@@ -70,7 +71,7 @@ let initialState =
                             description: 'This is therd test Deal for example',
                             importance: false,
                             startDate: 1,
-                            deadLine: 2,
+                            endingDate: 2,
                             isShowInCalendar: false,
                             done: false,
                             children: []
@@ -83,7 +84,7 @@ let initialState =
                     description: 'This is second test Deal for example',
                     importance: false,
                     startDate: 1,
-                    deadLine: 2,
+                    endingDate: 2,
                     isShowInCalendar: false,
                     done: false,
                     children: []
@@ -101,7 +102,7 @@ let initialState =
                     description: 'This is first test Deal for example',
                     importance: false,
                     startDate: 1,
-                    deadLine: 2,
+                    endingDate: 2,
                     isShowInCalendar: false,
                     done: false,
                     children: [
@@ -111,7 +112,7 @@ let initialState =
                             description: 'This is therd test Deal for example',
                             importance: false,
                             startDate: 1,
-                            deadLine: 2,
+                            endingDate: 2,
                             isShowInCalendar: false,
                             done: false,
                             children: []
@@ -124,7 +125,7 @@ let initialState =
                     description: 'This is second test Deal for example',
                     importance: false,
                     startDate: 1,
-                    deadLine: 2,
+                    endingDate: 2,
                     isShowInCalendar: false,
                     done: false,
                     children: []
@@ -136,10 +137,12 @@ let initialState =
 export const changeName = (id, newName) => ({type:CHANGE_NAME, id:id, name:newName});
 export const addNewDeal = (id) => ({type:ADD_DEAL, id:id});
 export const addNewList = () => ({type:ADD_LIST});
-export const deleteDeal = (id) => ({type:DELETE_DEAL, id:id});
+export const deleteDeal = (id) => {console.log({type:DELETE_DEAL, id:id}); return({type:DELETE_DEAL, id:id})};
 export const deleteList = (id) => ({type:DELETE_LIST, id:id});
 export const initData = () =>  ({type:INIT_DATA});
 export const makeDone = (id) => ({type:MAKE_DONE, id:id});
+export const changeStartDate = (id, newDate) => {console.log(newDate); return{type:CHANGE_START_DATE, id:id, startDate: newDate}};
+export const changeEndingDate = (id, newDate) =>{console.log(newDate); return{type:CHANGE_ENDING_DATE, id:id, endingDate: newDate}};
 export const cancelDone = (id) => ({type:CANCEL_DONE, id:id});
 
 
@@ -162,10 +165,20 @@ export const cancelDone = (id) => ({type:CANCEL_DONE, id:id});
     }))
 };*/
 
+const DeployData = (data) => {
+    let NewData = [...data];
+    data.forEach((item) => {
+        if(item.children.length > 0){
+            NewData = [...NewData, ...item.children];
+            DeployData(item.children);
+        }
+    });
+    return NewData;
+};
+
 const ChangeDeal = (id, changing, data) => {
     return( data.map((item)=>{
         let newItem = {...item};
-        console.log(item.id, id);
         if(item.id.slice(-2) === id.slice(0, 2)){
             id.length === 2
                 ? newItem = {...item, ...changing}
@@ -198,7 +211,7 @@ const addSubDeal = (id, data) => {
                     description: '',
                     importance: false,
                     startDate: null,
-                    deadLine: null,
+                    endingDate: null,
                     isShowInCalendar: false,
                     done: false,
                     children: []
@@ -227,7 +240,7 @@ const addList = (data) => {
             description: '',
             importance: false,
             startDate: null,
-            deadLine: null,
+            endingDate: null,
             isShowInCalendar: false,
             done: false,
             children: []
@@ -249,7 +262,6 @@ const deletItem = (id, data=[]) => {
 };
 
 export const DealReducer = (state = initialState, action) => {
-
         switch(action.type) {
             case ADD_LIST: {
                 return addList(state)
@@ -258,10 +270,15 @@ export const DealReducer = (state = initialState, action) => {
                 return addSubDeal(action.id, state)
             }
             case CHANGE_NAME: {
-                console.log(action);
                 let changing = {name: action.name};
-                console.log(changing);
-
+                return ChangeDeal(action.id, changing, state)
+            }
+            case CHANGE_START_DATE: {
+                let changing = {startDate:  action.startDate};
+                return ChangeDeal(action.id, changing, state)
+            }
+            case CHANGE_ENDING_DATE: {
+                let changing = {endingDate: action.endingDate};
                 return ChangeDeal(action.id, changing, state)
             }
             case DELETE_DEAL: {
@@ -279,8 +296,11 @@ export const DealReducer = (state = initialState, action) => {
                 return ChangeDeal(action.id, changing, state)
             }
             case INIT_DATA: {
-                if (!!JSON.parse(localStorage.getItem('userData'))) {
+                if(!! JSON.parse(localStorage.getItem('userData'))){
                     return JSON.parse(localStorage.getItem('userData'))
+                }
+                else{
+                    return [...state];
                 }
             }
             default: {

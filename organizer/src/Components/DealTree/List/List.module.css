@@ -1,0 +1,17 @@
+.list {
+  width: 90%; }
+
+.add {
+  width: 90%;
+  margin: auto 2px 5px 2px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px; }
+  .add p {
+    margin: 1px 4px 1px 1px; }
+
+.bottomPad {
+  height: 100px; }
+
+/*# sourceMappingURL=List.module.css.map */

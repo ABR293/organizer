@@ -1,0 +1,40 @@
+@import ../../Common/styleVars
+
+.dealBlock
+  margin: 3px 1px 0 5px
+  width: 95%
+.dealMain
+  height: 20px
+  min-width: 100px
+  border-radius: 5px
+  display: grid
+  grid-template-rows: 20px
+  grid-template-columns: 20px auto 76px
+  grid-template-areas: 'btn1 dealName dealMenu'
+
+.subDealsBlock
+  width: 100%
+  margin-left: 10px
+
+
+.sadDealsBlockNone
+  margin-left: 10px
+  display: none
+
+.openBtn
+  grid-area: btn1
+  @extend %centralization
+
+.dealName
+  grid-area: dealName
+  display: flex
+  justify-content: flex-start
+  align-items: center
+
+.dealMenu
+  grid-area: dealMenu
+  @extend %centralization
+
+
+
+
