@@ -76,6 +76,18 @@ $dealDoneTextColor: #282c34
   font-family: GothicI
 .menu
   background-color: $background1
+  &__menuItem
+    background: $background1
+    color: $textColor1
+    text-shadow: $textShadow1
+    box-shadow: $boxShadow1
+    border: $border
+  &__menuItemActive
+    background-color: $background2
+    color: $textColor2
+    text-shadow: $textShadow2
+    box-shadow: $boxShadow2
+
 .content
   background-color: $background1
   @extend %text
@@ -83,18 +95,6 @@ $dealDoneTextColor: #282c34
   background-color: $background1
 
   //Menu
-
-.menuItem
-  background: $background1
-  color: $textColor1
-  text-shadow: $textShadow1
-  box-shadow: $boxShadow1
-  border: $border
-.menuItemActive
-  background-color: $background2
-  color: $textColor2
-  text-shadow: $textShadow2
-  box-shadow: $boxShadow2
 
 
 .scrollbar

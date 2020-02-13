@@ -1,22 +1,22 @@
 import React from 'react';
 import style from './App.module.css';
-import theme from './Components/Common/Theme'
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Menu from "./Components/Menu";
 import {Route} from "react-router-dom";
 import Calendar from "./Components/Calendar";
-import Settings from "./Components/Settings";
+import SettingsContainer from "./Components/Settings/SettingsContainer";
 import DealTreeContainer from "./Components/DealTree/DealTreeContainer";
 import {initData} from "./Redux/DealReducer";
 import {connect} from "react-redux";
 import classNames from 'classnames'
+import {initSettings} from "./Redux/SettingReducer";
 
 class App extends React.Component {
 
     UNSAFE_componentWillMount() {
         this.props.initData();
-        //this.props.initSettings();
+        this.props.initSettings();
         //this.props.initCalendar();
     }
 
@@ -27,7 +27,8 @@ class App extends React.Component {
 
 
     render() {
-        console.log(theme);
+        let theme = this.props.theme;
+
         return (
             <div className={classNames(style.app, theme.app)}>
                 <header className={classNames(style.header, theme.header)}><Header/></header>
@@ -40,7 +41,7 @@ class App extends React.Component {
                            render={() => <DealTreeContainer/>}
                     />
                     <Route path='/Settings'
-                           render={() => <Settings/>}
+                           render={() => <SettingsContainer/>}
                     />
                 </div>
 
@@ -52,8 +53,10 @@ class App extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        data:state.data
+        data:state.data,
+        theme: state.settings.theme,
+        settings: state.settings,
     }
 };
 
-export default connect(mapStateToProps, {initData})(App);
+export default connect(mapStateToProps, {initData, initSettings})(App);

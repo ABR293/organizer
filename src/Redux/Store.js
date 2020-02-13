@@ -1,10 +1,11 @@
 import {combineReducers, createStore} from "redux";
 //import {settingReducer} from "./SettingReducer";
 import {DealReducer} from "./DealReducer";
+import {SettingReducer} from "./SettingReducer";
 
 
 let reducers = combineReducers ({
-    //settings: settingReducer,
+    settings: SettingReducer,
     data: DealReducer,
 
 });
