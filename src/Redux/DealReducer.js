@@ -1,7 +1,8 @@
 const ADD_LIST = 'ADD-LIST';
 const ADD_DEAL = 'ADD-DEAL';
 const CHANGE_NAME = 'CHANGE-NAME';
-//const CHANGE_DATE = 'CHANGE-DATE';
+const CHANGE_START_DATE = 'CHANGE-START-DATE';
+const CHANGE_ENDING_DATE = 'CHANGE-ENDING-DATE';
 const MAKE_DONE = 'MAKE-DONE';
 const CANCEL_DONE = 'CANCEL-DONE';
 const INIT_DATA = 'INIT-DATA';
@@ -39,6 +40,8 @@ export const deleteDeal = (id) => ({type: DELETE_DEAL, id: id});
 export const deleteList = (id) => ({type: DELETE_LIST, id: id});
 export const initData = () => ({type: INIT_DATA});
 export const makeDone = (id) => ({type: MAKE_DONE, id: id});
+export const changeStartDate = (id, newDate) => {console.log(newDate); return{type:CHANGE_START_DATE, id:id, startDate: newDate}};
+export const changeEndingDate = (id, newDate) =>{console.log(newDate); return{type:CHANGE_ENDING_DATE, id:id, endingDate: newDate}};
 export const cancelDone = (id) => ({type: CANCEL_DONE, id: id});
 
 
@@ -87,7 +90,7 @@ const addSubDeal = (id, data) => {
                 let subDealId = genId();
                 for (let i = 0; i < 99; i++) {
                     subDealId = genId();
-                    if (item.children.findIndex(item => item.id === subDealId) === -1) {
+                    if (item.children.findIndex(item => item.id.slice(-2) === subDealId) === -1) {
                         break;
                     }
                 }
@@ -171,6 +174,14 @@ export const DealReducer = (state = initialState, action) => {
             } else {
                 return [...state]
             }
+        }
+        case CHANGE_START_DATE: {
+            let changing = {startDate:  action.startDate};
+            return ChangeDeal(action.id, changing, state)
+        }
+        case CHANGE_ENDING_DATE: {
+            let changing = {endingDate: action.endingDate};
+            return ChangeDeal(action.id, changing, state)
         }
         case MAKE_DONE: {
             let changing = {done: true};

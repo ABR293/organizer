@@ -11,7 +11,9 @@ import DeletDeal from "../../Common/Buttons/DeletDeal";
 import CancelDoneDeal from "../../Common/Buttons/CanceleDone";
 import SubList from "./subList";
 import classNames from "classnames";
-import theme from "../../Common/Theme";
+//import {ThemeStyleHOC} from "../../Common/ThemeStyleHoc";
+import RedactWindow from "../../RedactWindow/RedactWindow";
+import ReactDOM from "react-dom";
 
 const Deal = (props) => {
     let ShowS = () => {console.log(showSubDeal)};
@@ -21,15 +23,41 @@ const Deal = (props) => {
     let changeShowSubDeal = () =>{
         showSubDeal ? setShowSubDeal(false) : setShowSubDeal(true)
     };
+
+    let [isModalOpen, setModalOpen] = useState(false);
+
+    let toggleModal = () => {setModalOpen(!isModalOpen)};
+
+    let theme = props.theme;
+
+    console.log(props);
     return (
         <div className={style.dealBlock}>
+            <div>
+                {isModalOpen && ReactDOM.createPortal(
+                    <RedactWindow
+                        theme={theme}
+                        close={toggleModal}
+                        id={props.id}
+                        name={props.name}
+                        isDone={props.done}
+                        description= {props.description}
+                        importance={props.importance}
+                        startDate={props.startDate}
+                        endingDate={props.endingDate}
+                        isShowInCalendar={props.isShowInCalendar}
+                        subpropss={props.children}
+                    />,
+                    document.body
+                )}
+            </div>
             <div className={!props.isDone ? classNames(style.dealMain, theme.dealMain) :classNames(style.dealMain, theme.dealMainDone)} >
                 <div className={style.openBtn}>
                     {
                         props.subdeals.length === 0 ?
-                        <AddNewDeal id ={props.id} make={changeShowSubDeal}
-                        /> :
-                        <OpenTree make={changeShowSubDeal} isShow={showSubDeal}/>
+                            <AddNewDeal id ={props.id} make={changeShowSubDeal}
+                            /> :
+                            <OpenTree make={changeShowSubDeal} isShow={showSubDeal}/>
                     }
                 </div>
                 <div className={style.dealName}>
@@ -39,15 +67,15 @@ const Deal = (props) => {
                     />
                 </div>
                 <div className={style.dealMenu}>
-                    {! props.isDone ? <RedactDeal make={ShowS}/> : <RedactDeal disabled='disabled'/>}
+                    {! props.isDone ? <RedactDeal make={toggleModal}/> : <RedactDeal disabled='disabled'/>}
                     {! props.isDone ? <ShowDescription make={ShowS}/> : <ShowDescription disabled='disabled'/>}
                     {! props.isDone ? <MakeDoneDeal id={props.id}/> : <CancelDoneDeal id={props.id}/>}
                     <DeletDeal id={props.id}/>
                 </div>
             </div>
-             <div  className={showSubDeal ? classNames(style.subDealsBlock, theme.subDealsBlock): style.sadDealsBlockNone}>
-                 {props.subdeals.length === 0 ? null : <SubList id={props.id} listBody={props.subdeals}/>}
-               </div>
+            <div  className={showSubDeal ? classNames(style.subDealsBlock, theme.subDealsBlock): style.sadDealsBlockNone}>
+                {props.subdeals.length === 0 ? null : <SubList id={props.id} listBody={props.subdeals}/>}
+            </div>
         </div>
     )
 };

@@ -34,6 +34,12 @@
 .menu {
   background-color: #3f3f3f; }
 
+.content {
+  background-color: #3f3f3f; }
+
+.footer {
+  background-color: #3f3f3f; }
+
 .menuItem {
   background: #3f3f3f;
   color: #7b9696;
@@ -46,12 +52,6 @@
   color: #b5dddd;
   text-shadow: #ff1500 0 0 8px;
   box-shadow: 0 0 15px #ff0d00; }
-
-.content {
-  background-color: #3f3f3f; }
-
-.footer {
-  background-color: #3f3f3f; }
 
 .scrollbar ::-webkit-scrollbar {
   width: 17px; }

@@ -6,12 +6,10 @@ import {deleteList} from "../../../Redux/DealReducer";
 import {connect} from "react-redux";
 import DeleteList from "../../Common/Buttons/DeleteList";
 import classNames from "classnames";
-import theme from "../../Common/Theme";
-
 
 const ListMenu = (props) => {
 
-    //let theme = props.theme;
+    let theme = props.theme;
 
     let Lists = props.data.map((list)=>{
         return(

@@ -4,20 +4,22 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Menu from "./Components/Menu";
 import {Route} from "react-router-dom";
-import Calendar from "./Components/Calendar";
+//import Calendar from "./Components/Calendar";
 import SettingsContainer from "./Components/Settings/SettingsContainer";
 import DealTreeContainer from "./Components/DealTree/DealTreeContainer";
 import {initData} from "./Redux/DealReducer";
 import {connect} from "react-redux";
 import classNames from 'classnames'
 import {initSettings} from "./Redux/SettingReducer";
+import {initCalendar} from "./Redux/CalendarReducer";
+import CalendarContainer from "./Components/Calendar/CalendarContainer";
 
 class App extends React.Component {
 
     UNSAFE_componentWillMount() {
         this.props.initData();
         this.props.initSettings();
-        //this.props.initCalendar();
+        this.props.initCalendar();
     }
 
     componentDidUpdate() {
@@ -35,10 +37,10 @@ class App extends React.Component {
                 <nav className={classNames(style.menu, theme.menu)}><Menu theme={theme}/></nav>
                 <div className={classNames(style.content, theme.content)}>
                     <Route path='/calendar'
-                           render={() => <Calendar/>}
+                           render={() => <CalendarContainer theme={theme} />}
                     />
                     <Route path='/DealTree'
-                           render={() => <DealTreeContainer/>}
+                           render={() => <DealTreeContainer theme={theme}/>}
                     />
                     <Route path='/Settings'
                            render={() => <SettingsContainer />}
@@ -59,4 +61,4 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {initData, initSettings})(App);
+export default connect(mapStateToProps, {initData, initSettings, initCalendar})(App);

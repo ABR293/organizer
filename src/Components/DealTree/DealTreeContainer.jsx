@@ -44,6 +44,7 @@ class DealTreeContainer extends React.Component {
         return (
             <>
                 <DealTree
+                    theme={this.props.theme}
                     data={testData}
                     addNewList={this.props.addNewList}
                     changeName={this.props.changeName}

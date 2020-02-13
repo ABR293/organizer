@@ -13,6 +13,11 @@ const List = (props) => {
                 id={deal.id}
                 name={deal.name}
                 isDone={deal.done}
+                description= {deal.description}
+                importance={deal.importance}
+                startDate={deal.startDate}
+                endingDate={deal.endingDate}
+                isShowInCalendar={deal.isShowInCalendar}
                 subdeals={deal.children}
             />
         )

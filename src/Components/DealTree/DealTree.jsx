@@ -4,10 +4,12 @@ import {Route} from "react-router-dom";
 import ListMenu from "./ListMenu";
 import ListContainer from "./List/ListContainer";
 import classNames from "classnames";
-import theme from "../Common/Theme";
+//import theme from "../Common/Theme";
 
 
 const DealTree = (props) => {
+
+    let theme = props.theme;
 
     return (
         <div className={classNames(style.block, theme.scrollbar)}>
