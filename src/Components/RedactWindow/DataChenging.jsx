@@ -6,6 +6,8 @@ const DataChanging = (props) => {
 
     console.log(props);
 
+    let nDate = props.date ? props.date : null;
+
     let [isActiv, setActiv]=useState(false);
     let [date, setDate]  = useState(props.date);
 
@@ -28,11 +30,11 @@ const DataChanging = (props) => {
                 type="date"
                 onBlur={updateDate}
                 autoFocus={true}
-                defaultValue={date}
+                defaultValue={nDate}
                 onChange={onDateChange}
             />
             :
-            <p className={style.date} onClick={changeActivity}>{date ? date : 'NICHT DATA!'}</p>
+            <p className={style.date} onClick={changeActivity}>{props.date ? new Date(props.date).toDateString() : 'NICHT DATA!'}</p>
     )
 };
 

@@ -13,6 +13,8 @@ let initialstate = {
 };
 
 
+
+
 export const calendarReducer = (state = initialstate, action) => {
     switch (action.type){
         case INIT_CALENDAR:{
@@ -22,7 +24,7 @@ export const calendarReducer = (state = initialstate, action) => {
                 days[i].setDate(days[0].getDate()+i);
             }
             console.log(days);
-            return {...state, days:[...days]}
+            return {...state, days:[...days], }
         }
 
         default:{

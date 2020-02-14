@@ -182,11 +182,11 @@ export const DealReducer = (state = initialState, action) => {
             }
         }
         case CHANGE_START_DATE: {
-            let changing = {startDate:  action.startDate};
+            let changing = {startDate: new Date(action.startDate).getTime()};
             return ChangeDeal(action.id, changing, state)
         }
         case CHANGE_ENDING_DATE: {
-            let changing = {endingDate: action.endingDate};
+            let changing = {endingDate: new Date(action.endingDate).getTime()};
             return ChangeDeal(action.id, changing, state)
         }
         case CHANGE_DESCRIPTION: {
