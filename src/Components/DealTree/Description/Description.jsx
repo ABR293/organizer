@@ -16,10 +16,7 @@ const Description = (props) => {
             }}
         >
             <div className={classNames(style.window, theme.redactWindow)}>
-                <p>
-                    {props.description}
-                    sdfsdfdsfdsfds
-                </p>
+                   <p>{props.description}</p>
             </div>
         </div>
     );

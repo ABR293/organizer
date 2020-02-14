@@ -3,6 +3,9 @@ const ADD_DEAL = 'ADD-DEAL';
 const CHANGE_NAME = 'CHANGE-NAME';
 const CHANGE_START_DATE = 'CHANGE-START-DATE';
 const CHANGE_ENDING_DATE = 'CHANGE-ENDING-DATE';
+const CHANGE_DESCRIPTION = 'CHANGE-DESCRIPTION';
+const SET_SHOW_IN_CALENDAR = "SET-SHOW-IN-CALENDAR";
+const CANCEL_SHOW_IN_CALENDAR = "CANCEL-SHOW-IN-CALENDAR";
 const MAKE_DONE = 'MAKE-DONE';
 const CANCEL_DONE = 'CANCEL-DONE';
 const INIT_DATA = 'INIT-DATA';
@@ -43,6 +46,9 @@ export const makeDone = (id) => ({type: MAKE_DONE, id: id});
 export const changeStartDate = (id, newDate) => {console.log(newDate); return{type:CHANGE_START_DATE, id:id, startDate: newDate}};
 export const changeEndingDate = (id, newDate) =>{console.log(newDate); return{type:CHANGE_ENDING_DATE, id:id, endingDate: newDate}};
 export const cancelDone = (id) => ({type: CANCEL_DONE, id: id});
+export const changeDescription = (id, description) => ({type: CHANGE_DESCRIPTION, id: id, description: description});
+export const setShowInCalendar  = (id) => ({type:SET_SHOW_IN_CALENDAR, id:id});
+export const cancelShowInCalendar  = (id) => ({type:CANCEL_SHOW_IN_CALENDAR, id:id});
 
 
 /*const getElement = (id, data) => {
@@ -181,6 +187,18 @@ export const DealReducer = (state = initialState, action) => {
         }
         case CHANGE_ENDING_DATE: {
             let changing = {endingDate: action.endingDate};
+            return ChangeDeal(action.id, changing, state)
+        }
+        case CHANGE_DESCRIPTION: {
+            let changing = {description: action.description};
+            return ChangeDeal(action.id, changing, state)
+        }
+        case SET_SHOW_IN_CALENDAR: {
+            let changing = {isShowInCalendar: true};
+            return ChangeDeal(action.id, changing, state)
+        }
+        case CANCEL_SHOW_IN_CALENDAR: {
+            let changing = {isShowInCalendar: false};
             return ChangeDeal(action.id, changing, state)
         }
         case MAKE_DONE: {

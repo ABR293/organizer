@@ -46,17 +46,21 @@ const Deal = (props) => {
                         id={props.id}
                         name={props.name}
                         isDone={props.done}
-                        description= {props.description}
+                        description={props.description}
                         importance={props.importance}
                         startDate={props.startDate}
                         endingDate={props.endingDate}
                         isShowInCalendar={props.isShowInCalendar}
                         subpropss={props.children}
+                        changeDescription={props.changeDescription}
+                        setShowInCalendar={props.setShowInCalendar}
+                        cancelShowInCalendar={props.cancelShowInCalendar}
+                        />
                         />
                     </Modal>,
                     document.body
                 )}
-                {isDescriptionOpen && ReactDOM.createPortal(
+                {props.description && isDescriptionOpen &&  ReactDOM.createPortal(
                     <Modal>
                         <Description
                             description={props.description}
@@ -84,7 +88,7 @@ const Deal = (props) => {
                 </div>
                 <div className={style.dealMenu}>
                     {! props.isDone ? <RedactDeal make={toggleRedactWindow}/> : <RedactDeal disabled='disabled'/>}
-                    {! props.isDone ? <ShowDescription make={toggleDescription}/> : <ShowDescription disabled='disabled'/>}
+                    {! props.is && props.description ? <ShowDescription make={toggleDescription}/> : <ShowDescription disabled='disabled'/>}
                     {! props.isDone ? <MakeDoneDeal id={props.id}/> : <CancelDoneDeal id={props.id}/>}
                     <DeletDeal id={props.id}/>
                 </div>

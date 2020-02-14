@@ -2,6 +2,8 @@ import React from 'react';
 import style from './RedactWindow.module.css'
 import classNames from "classnames";
 import DataChanging from "./DataChenging";
+import Description from "../DealTree/Description/Description";
+import DescriptionInput from "./DescriptionInput";
 
 const RedactWindow = (props) => {
     console.log(props);
@@ -22,11 +24,46 @@ const RedactWindow = (props) => {
             <div className={style.lastDate}>
                 <DataChanging id={props.id} date={props.endingDate} type={'e'}/>
             </div>
-            <button className={style.calendarBTN}>SC</button>
+
+            {props.startDate && props.endingDate ?
+                <div className={style.calendarBTN} >
+                    {!props.isShowInCalendar
+                        ?
+                        <button
+                            onClick={() => {
+                                props.setShowInCalendar(props.id)
+                            }}
+                        >
+                            SK
+                        </button>
+                        :
+                        <button
+                            onClick={() => {
+                                props.cancelShowInCalendar(props.id)
+                            }}
+                        >
+                            DSK
+                        </button>
+                    }
+                </div>
+                :
+                <button
+                    className={style.calendarBTN}
+                    disabled={true}
+                >
+                    SK
+                </button>}
+
 
             <div className={style.descriptionBlock}>
                 <p className={style.descriptionBlock__name}>Description</p>
-                <textarea className={style.descriptionBlock__input}/>
+                <div className={style.descriptionBlock__input}>
+                    <DescriptionInput
+                        id={props.id}
+                        description={props.description}
+                    />
+                </div>
+
             </div>
             <div className={style.resultBlock}>
                 <button onClick={() => {

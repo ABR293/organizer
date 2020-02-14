@@ -1,7 +1,13 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Deal from "./Deal";
-import {addNewDeal, changeName} from "../../../Redux/DealReducer";
+import {
+    addNewDeal,
+    cancelShowInCalendar,
+    changeDescription,
+    changeName,
+    setShowInCalendar
+} from "../../../Redux/DealReducer";
 
 class DealContainer extends React.Component{
 
@@ -22,6 +28,9 @@ class DealContainer extends React.Component{
                 isShowInCalendar={this.props.isShowInCalendar}
                 subpropss={this.props.children}
                 theme={this.props.theme}
+                changeDescription={this.props.changeDescription}
+                setShowInCalendar={this.props.setShowInCalendar}
+                cancelShowInCalendar={this.props.cancelShowInCalendar}
             />
             )
     }
@@ -34,4 +43,12 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps,{changeName,addNewDeal,})(DealContainer);
+export default connect(mapStateToProps,
+    {
+        changeName,
+        addNewDeal,
+        changeDescription,
+        setShowInCalendar,
+        cancelShowInCalendar
+    }
+)(DealContainer);
