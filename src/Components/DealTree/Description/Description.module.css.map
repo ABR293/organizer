@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,SAAS;EACP,OAAO,EAAE,CAAC;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,kBAAkB;EACpC,QAAQ,EAAE,QAAQ;;AACpB,OAAO;EACL,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,eAAe;EACvB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,GAAG;EACX,aAAa,EAAE,GAAG;EAClB,OAAO,EAAE,IAAI",
+"sources": ["Description.module.sass"],
+"names": [],
+"file": "Description.module.css"
+}

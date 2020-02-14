@@ -5,7 +5,6 @@ import style from "./List.module.css"
 
 const List = (props) => {
 
-
     let Deals = props.listBody.map((deal) => {
         return (
             <DealContainer
@@ -35,8 +34,6 @@ const List = (props) => {
         </div>
     )
 };
-
-//let  withRouterList = withRouter(List);
 
 export default List;
 

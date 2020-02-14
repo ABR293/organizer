@@ -11,9 +11,10 @@ import DeletDeal from "../../Common/Buttons/DeletDeal";
 import CancelDoneDeal from "../../Common/Buttons/CanceleDone";
 import SubList from "./subList";
 import classNames from "classnames";
-//import {ThemeStyleHOC} from "../../Common/ThemeStyleHoc";
 import RedactWindow from "../../RedactWindow/RedactWindow";
 import ReactDOM from "react-dom";
+import Modal from "../../Common/Modal/Modal";
+import Description from "../Description/Description";
 
 const Deal = (props) => {
     let ShowS = () => {console.log(showSubDeal)};
@@ -24,9 +25,12 @@ const Deal = (props) => {
         showSubDeal ? setShowSubDeal(false) : setShowSubDeal(true)
     };
 
-    let [isModalOpen, setModalOpen] = useState(false);
+    let [isRedactWindowOpen, setRedactWindowOpen] = useState(false);
+    let toggleRedactWindow = () => {setRedactWindowOpen(!isRedactWindowOpen)};
 
-    let toggleModal = () => {setModalOpen(!isModalOpen)};
+
+    let [isDescriptionOpen, setDescriptionOpen] = useState(false);
+    let toggleDescription = () => {setDescriptionOpen(!isDescriptionOpen)};
 
     let theme = props.theme;
 
@@ -34,10 +38,11 @@ const Deal = (props) => {
     return (
         <div className={style.dealBlock}>
             <div>
-                {isModalOpen && ReactDOM.createPortal(
-                    <RedactWindow
+                {isRedactWindowOpen && ReactDOM.createPortal(
+                    <Modal>
+                        <RedactWindow
                         theme={theme}
-                        close={toggleModal}
+                        close={toggleRedactWindow}
                         id={props.id}
                         name={props.name}
                         isDone={props.done}
@@ -47,7 +52,18 @@ const Deal = (props) => {
                         endingDate={props.endingDate}
                         isShowInCalendar={props.isShowInCalendar}
                         subpropss={props.children}
-                    />,
+                        />
+                    </Modal>,
+                    document.body
+                )}
+                {isDescriptionOpen && ReactDOM.createPortal(
+                    <Modal>
+                        <Description
+                            description={props.description}
+                            theme={theme}
+                            close={toggleDescription}
+                        />
+                    </Modal>,
                     document.body
                 )}
             </div>
@@ -67,8 +83,8 @@ const Deal = (props) => {
                     />
                 </div>
                 <div className={style.dealMenu}>
-                    {! props.isDone ? <RedactDeal make={toggleModal}/> : <RedactDeal disabled='disabled'/>}
-                    {! props.isDone ? <ShowDescription make={ShowS}/> : <ShowDescription disabled='disabled'/>}
+                    {! props.isDone ? <RedactDeal make={toggleRedactWindow}/> : <RedactDeal disabled='disabled'/>}
+                    {! props.isDone ? <ShowDescription make={toggleDescription}/> : <ShowDescription disabled='disabled'/>}
                     {! props.isDone ? <MakeDoneDeal id={props.id}/> : <CancelDoneDeal id={props.id}/>}
                     <DeletDeal id={props.id}/>
                 </div>

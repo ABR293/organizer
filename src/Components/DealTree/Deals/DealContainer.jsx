@@ -3,9 +3,6 @@ import {connect} from "react-redux";
 import Deal from "./Deal";
 import {addNewDeal, changeName} from "../../../Redux/DealReducer";
 
-
-
-
 class DealContainer extends React.Component{
 
     render(){
