@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from './DealTree.module.css'
 import {Route} from "react-router-dom";
 import ListMenu from "./ListMenu";
@@ -10,6 +10,11 @@ import classNames from "classnames";
 const DealTree = (props) => {
 
     let theme = props.theme;
+
+    useEffect(() => {
+        document.title = `Дела`;
+    });
+
 
     return (
         <div className={classNames(style.block, theme.scrollbar)}>

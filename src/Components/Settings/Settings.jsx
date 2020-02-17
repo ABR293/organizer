@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from './Settings.module.css';
 import theme1 from '../Common/Theme1.module.css';
 import theme2 from '../Common/Theme2.module.css';
 import theme3 from '../Common/Theme3.module.css';
 
 const Settings = (props) => {
+
+    useEffect(() => {
+        document.title = `Настройки`;
+    });
 
     return (
         <>

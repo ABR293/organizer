@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import style from './Calendar.module.css'
 import classNames from "classnames";
 //import DealContainer from "../DealTree/Deals/DealContainer";
@@ -8,8 +8,9 @@ import DealContainer from "../DealTree/Deals/DealContainer";
 
 const Calendar = (props) => {
 
-    console.log(props);
-    console.log(props.data);
+    useEffect(() => {
+        document.title = `Календарь`;
+    });
 
     let theme = props.theme;
 
@@ -36,8 +37,6 @@ const Calendar = (props) => {
                     <div className={classNames(style.day__list, theme.calendarDay__block)}>
 
                         {props.data.map((item) => {
-                            console.log(day.getTime());
-                            console.log(item);
                             if (item.isShowInCalendar === true
                                 && item.endingDate >= foreNextDay.getTime()
                                 && item.startDate <= day.getTime()
