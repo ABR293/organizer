@@ -65,9 +65,9 @@ $dealDoneTextColor: #282c34
   background-color: $background3
   border: solid 3px $background3
   @extend %text
-  button
-    margin: 1px
-    @extend %button
+  //button
+  //  margin: 1px
+  //  @extend %button
   input
     @extend %input
 .header
@@ -90,6 +90,10 @@ $dealDoneTextColor: #282c34
   text-shadow: $textShadow1
   box-shadow: $boxShadow1
   border: $border
+  button
+    width: 16px
+    height: 16px
+    @extend %button
 .menuItemActive
   background-color: $background2
   color: $textColor2
@@ -155,6 +159,11 @@ $dealDoneTextColor: #282c34
       color: $dealDoneTextColor
       box-shadow: $dealDoneBox-shadow
       border: $border3
+.list
+  button
+    width: 16px
+    height: 16px
+    @extend %button
 
 .calendarDay
   background-color: $color1
@@ -164,3 +173,7 @@ $dealDoneTextColor: #282c34
   //solid 2px red
   &__block
     background-color: $background1
+.button
+  @extend %text
+  background-color: $background1
+  border: $border

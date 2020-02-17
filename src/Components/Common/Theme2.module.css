@@ -1,10 +1,10 @@
-.app button, .dealMain button, .dealMainDone button, .redactWindow__button button, .redactWindow__disabledButton button, .app input, .redactWindow input, .redactWindow textarea, .app, .content, .dealMain, .dealMainDone, .redactWindow {
+.menuItem button, .dealMain button, .dealMainDone button, .redactWindow__button button, .redactWindow__disabledButton button, .list button, .app input, .redactWindow input, .redactWindow textarea, .app, .content, .dealMain, .dealMainDone, .redactWindow, .button {
   color: #d0cfce;
   font-weight: bold;
   font-stretch: extra-expanded;
   text-shadow: #006b71 0 0 5px; }
 
-.app button, .dealMain button, .dealMainDone button, .redactWindow__button button, .redactWindow__disabledButton button {
+.menuItem button, .dealMain button, .dealMainDone button, .redactWindow__button button, .redactWindow__disabledButton button, .list button {
   background-color: #63696b;
   border: solid 0.5px #00d2ff; }
 
@@ -22,8 +22,6 @@
 .app {
   background-color: #009192;
   border: solid 3px #009192; }
-  .app button {
-    margin: 1px; }
 
 .header {
   background-color: #63696b;
@@ -45,6 +43,9 @@
   text-shadow: #006b71 0 0 5px;
   box-shadow: 0 0 12px #00ced6;
   border: solid 0.5px #00d2ff; }
+  .menuItem button {
+    width: 16px;
+    height: 16px; }
 
 .menuItemActive {
   background-color: #959595;
@@ -101,6 +102,10 @@
     box-shadow: 0 0 12px #397078;
     border: solid 0.5px #000769; }
 
+.list button {
+  width: 16px;
+  height: 16px; }
+
 .calendarDay {
   background-color: #36b7ff;
   border: solid 0.5px #00d2ff;
@@ -108,5 +113,9 @@
   box-shadow: 0 0 12px #00ced6; }
   .calendarDay__block {
     background-color: #63696b; }
+
+.button {
+  background-color: #63696b;
+  border: solid 0.5px #00d2ff; }
 
 /*# sourceMappingURL=Theme2.module.css.map */

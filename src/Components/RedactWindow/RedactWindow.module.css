@@ -18,7 +18,10 @@
   align-items: center;
   justify-items: center; }
   .block button {
-    outline: none; }
+    outline: none;
+    border-radius: 3px; }
+  .block p {
+    margin: 0; }
 
 .name {
   grid-area: name; }

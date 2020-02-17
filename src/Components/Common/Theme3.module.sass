@@ -1,32 +1,39 @@
 
+$color1: rgb(0, 255, 88)
 
-$border: solid 0.5px #ff0000
-$shadow1: 0 0 12px rgb(255, 0, 0)
+$border: solid 0.5px $color1
+$shadow1: 0 0 12px $color1
 
 
 
-$boxShadow1: 0 0 12px rgb(255, 0, 0)
-$boxShadow2: 0 0 15px rgb(255, 13, 0)
-$scrollbarBoxShadow: inset 0 0 5px rgb(255, 6, 0)
-$scrollbarBackground: rgb(255, 0, 0)
+$boxShadow1: 0 0 12px $color1
+$boxShadow2: 0 0 15px rgb(23, 255, 93)
+$scrollbarBoxShadow: inset 0 0 5px rgb(0, 255, 60)
+$scrollbarBackground: rgb(8, 255, 68)
 
 $background1: #3f3f3f
 $background2: #7a7a7a
-$background3: #c10000
+$background3: #00c135
 
-$border1: solid 0.5px rgba(255, 0 , 0 , 0.8)
-$border2: solid 0.5px #ff0000
-$border3: solid 0.5px #690000
+$inputBackground: #077a2b
+$inputBorder: solid 0.9px #ffe2c6
+$inputBoxShadow: 0 0 5px #66ff6b
+$inputTextColor:#d3d5c5
+$inputTextShadow: 0 0 1px #a7ffa4
+
+$border1: solid 0.5px rgba(10, 233, 3, 0.8)
+$border2: solid 0.5px #00ff20
+$border3: solid 0.5px #006912
 $scrollbarBorder: solid 7px $background1
 
-$textColor1: #7b9696
-$textColor2: #b5dddd
-$textColorHeader:#ffa84d
+$textColor1: #d0ffff
+$textColor2: #fdfffd
+$textColorHeader: #b3ff2d
 
-$textShadow1: #d41500 0 0 5px
-$textShadow2: #ff1500 0 0 8px
+$textShadow1: #03d420 0 0 5px
+$textShadow2: #0be11c 0 0 8px
 
-$dealDoneBox-shadow: 0 0 12px rgb(120, 0, 0)
+$dealDoneBox-shadow: 0 0 12px rgb(0, 90, 15)
 $dealDoneTextColor: #282c34
 
 
@@ -35,21 +42,34 @@ $dealDoneTextColor: #282c34
   color: $textColor1
   font-weight: bold
   font-stretch: extra-expanded
-  text-shadow: red 0 0 5px
+  text-shadow: #04ff40 0 0 5px
 
 %button
   @extend %text
   background-color: $background1
   border: $border
-
+  outline-style: none
+%input
+  background-color: $inputBackground
+  border: $inputBorder
+  box-shadow: $inputBoxShadow
+  border-radius: 6px
+  @extend %text
+  color: $inputTextColor
+  font-weight: bold
+  font-stretch: extra-expanded
+  text-shadow: $inputTextShadow
+  outline: none
 
 .app
   background-color: $background3
   border: solid 3px $background3
   @extend %text
-  button
-    margin: 1px
-    @extend %button
+  //button
+  //  margin: 1px
+  //  @extend %button
+  input
+    @extend %input
 .header
   background-color: $background1
   color: $textColorHeader
@@ -70,12 +90,20 @@ $dealDoneTextColor: #282c34
   text-shadow: $textShadow1
   box-shadow: $boxShadow1
   border: $border
+  button
+    width: 16px
+    height: 16px
+    @extend %button
 .menuItemActive
   background-color: $background2
   color: $textColor2
   text-shadow: $textShadow2
   box-shadow: $boxShadow2
-
+.importance
+  p
+    font-weight: bold
+    font-stretch: extra-expanded
+    text-shadow: #00ff2a 0 0 9px
 
 .scrollbar
   ::-webkit-scrollbar
@@ -109,3 +137,43 @@ $dealDoneTextColor: #282c34
     color: $dealDoneTextColor
 .subDealsBlock
   border-left: $border2
+.redactWindow
+  border: $border
+  background: $background1
+  box-shadow: $boxShadow1
+  @extend %text
+  input
+    @extend %input
+  textarea
+    @extend %input
+  &__button
+    button
+      @extend %button
+      margin: 5px
+      border-radius: 4px
+  &__disabledButton
+    button
+      @extend %button
+      margin: 5px
+      border-radius: 4px
+      color: $dealDoneTextColor
+      box-shadow: $dealDoneBox-shadow
+      border: $border3
+.list
+  button
+    width: 16px
+    height: 16px
+    @extend %button
+
+.calendarDay
+  background-color: $color1
+  border: $border
+  border-width: 2px
+  box-shadow: $boxShadow1
+  //solid 2px red
+  &__block
+    background-color: $background1
+.button
+  @extend %text
+  background-color: $background1
+  border: $border

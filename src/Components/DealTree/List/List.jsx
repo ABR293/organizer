@@ -2,8 +2,11 @@ import React from 'react';
 import DealContainer from "../Deals/DealContainer";
 import AddNewDeal from "../../Common/Buttons/AddNewDeal";
 import style from "./List.module.css"
+import classNames from "classnames";
 
 const List = (props) => {
+
+    let theme = props.theme;
 
     let Deals = props.listBody.map((deal) => {
         return (
@@ -26,7 +29,7 @@ const List = (props) => {
             <div>
                 {Deals}
             </div>
-            <div className={style.add}>
+            <div className={classNames(style.add, theme.list)}>
                 <p>Add New Deal</p>
                 <AddNewDeal id={props.id}/>
             </div>

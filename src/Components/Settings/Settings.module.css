@@ -1,6 +1,8 @@
 .block {
   width: 90%;
   margin: 5px; }
+  .block button {
+    padding: 10px; }
 
 .item {
   display: flex;
@@ -10,5 +12,13 @@
   width: 90%;
   margin: 20px 3px;
   border-bottom: solid 0.5px #868686; }
+
+.buttonBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .buttonBlock button {
+    padding: 10px;
+    margin: 5px; }
 
 /*# sourceMappingURL=Settings.module.css.map */

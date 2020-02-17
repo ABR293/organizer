@@ -6,6 +6,9 @@
 .dealBlock {
   margin: 3px 1px 0 5px;
   width: 95%; }
+  .dealBlock button {
+    width: 16px;
+    height: 16px; }
 
 .dealMain {
   height: 20px;

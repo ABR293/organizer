@@ -15,7 +15,7 @@ const DealTree = (props) => {
         <div className={classNames(style.block, theme.scrollbar)}>
             <div className={style.list}>
                 <Route path={'/dealtree/:listId?'}
-                       render={() => <ListContainer dataP={props.data}/>}
+                       render={() => <ListContainer dataP={props.data} theme={theme}/>}
                 />
             </div>
 

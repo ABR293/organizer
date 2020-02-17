@@ -18,19 +18,21 @@ const RedactWindow = (props) => {
                 {!props.importance
                     ?
                     <button
+                        className={theme.button}
                         onClick={() => {
                             props.setImportant(props.id)
                         }}
                     >
-                        MI
+                        !
                     </button>
                     :
                     <button
+                        className={theme.button}
                         onClick={() => {
                             props.cancelImportant(props.id)
                         }}
                     >
-                        DMI
+                        <i className="fa fa-window-close" aria-hidden="true"> </i>
                     </button>
                 }
             </div>
@@ -47,30 +49,31 @@ const RedactWindow = (props) => {
                     {!props.isShowInCalendar
                         ?
                         <button
+                            className={theme.button}
                             onClick={() => {
                                 props.setShowInCalendar(props.id)
                             }}
                         >
-                            SK
+                            <i className="fa fa-calendar-check-o" aria-hidden="true"> </i>
                         </button>
                         :
                         <button
+                            className={theme.button}
                             onClick={() => {
                                 props.cancelShowInCalendar(props.id)
                             }}
                         >
-                            DSK
+                            <i className="fa fa-calendar-times-o" aria-hidden="true"> </i>
                         </button>
                     }
                 </div>
                 :
                 <button
-                    className={style.calendarBTN}
+                    className={classNames(style.calendarBTN, theme.dealMainDone)}
                     disabled={true}
                 >
                     SK
                 </button>}
-
 
             <div className={style.descriptionBlock}>
                 <p className={style.descriptionBlock__name}>Description</p>
@@ -83,9 +86,10 @@ const RedactWindow = (props) => {
 
             </div>
             <div className={style.resultBlock}>
-                <button onClick={() => {
-                    props.close()
-                }}>Ok
+                <button
+                    className={theme.button}
+                    onClick={() => {props.close()}}
+                >Ok
                 </button>
             </div>
 
