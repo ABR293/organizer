@@ -2,7 +2,8 @@ import React from 'react';
 import style from './Calendar.module.css'
 import classNames from "classnames";
 //import DealContainer from "../DealTree/Deals/DealContainer";
-import Deal from "../DealTree/Deals";
+//import Deal from "../DealTree/Deals";
+import DealContainer from "../DealTree/Deals/DealContainer";
 
 
 const Calendar = (props) => {
@@ -20,7 +21,7 @@ const Calendar = (props) => {
         (day) => {
 
 
-             let foreNextDay = new Date();
+            let foreNextDay = new Date();
             foreNextDay.setDate(day.getDate()-1);
 
             return (
@@ -43,23 +44,17 @@ const Calendar = (props) => {
                             ){
 
                                 return (
-                                    <Deal
-                                        name = {item.name}
-                                        id = {item.id}
-                                        subdeals = {item.children}
-                                        addNewDeal = {item.addNewDeal}
-                                        changeName = {item.changeName}
-                                        isDone = {item.done}
+                                    <DealContainer
+                                        key={item.id}
+                                        id={item.id}
+                                        name={item.name}
+                                        isDone={item.done}
                                         description= {item.description}
                                         importance={item.importance}
                                         startDate={item.startDate}
                                         endingDate={item.endingDate}
                                         isShowInCalendar={item.isShowInCalendar}
-                                        subpropss={item.children}
-                                        theme={theme}
-                                        changeDescription={item.changeDescription}
-                                        setShowInCalendar={item.setShowInCalendar}
-                                        cancelShowInCalendar={item.cancelShowInCalendar}
+                                        subdeals={item.children}
                                     />
                                 )
                             }

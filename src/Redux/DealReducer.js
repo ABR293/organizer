@@ -11,7 +11,8 @@ const CANCEL_DONE = 'CANCEL-DONE';
 const INIT_DATA = 'INIT-DATA';
 const DELETE_DEAL = 'DELETE-DEAL';
 const DELETE_LIST = 'DELETE-LIST';
-
+const SET_IMPORTANT = 'SET-IMPORTANT';
+const CANCEL_IMPORTANT = 'CANCEL-IMPORTANT';
 let initialState =
     [
         {
@@ -49,6 +50,8 @@ export const cancelDone = (id) => ({type: CANCEL_DONE, id: id});
 export const changeDescription = (id, description) => ({type: CHANGE_DESCRIPTION, id: id, description: description});
 export const setShowInCalendar  = (id) => ({type:SET_SHOW_IN_CALENDAR, id:id});
 export const cancelShowInCalendar  = (id) => ({type:CANCEL_SHOW_IN_CALENDAR, id:id});
+export const setImportant  = (id) => ({type:SET_IMPORTANT, id:id});
+export const cancelImportant  = (id) => ({type:CANCEL_IMPORTANT, id:id});
 
 
 /*const getElement = (id, data) => {
@@ -199,6 +202,14 @@ export const DealReducer = (state = initialState, action) => {
         }
         case CANCEL_SHOW_IN_CALENDAR: {
             let changing = {isShowInCalendar: false};
+            return ChangeDeal(action.id, changing, state)
+        }
+        case SET_IMPORTANT: {
+            let changing = {importance: true};
+            return ChangeDeal(action.id, changing, state)
+        }
+        case CANCEL_IMPORTANT: {
+            let changing = {importance: false};
             return ChangeDeal(action.id, changing, state)
         }
         case MAKE_DONE: {

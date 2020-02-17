@@ -13,8 +13,8 @@
   border-radius: 5px;
   display: grid;
   grid-template-rows: 20px;
-  grid-template-columns: 20px auto 76px;
-  grid-template-areas: "btn1 dealName dealMenu"; }
+  grid-template-columns: 20px 15px auto 76px;
+  grid-template-areas: "btn1 dealImportance dealName dealMenu"; }
 
 .subDealsBlock {
   width: 100%;
@@ -26,6 +26,13 @@
 
 .openBtn {
   grid-area: btn1; }
+
+.dealImportance {
+  grid-area: dealImportance;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red; }
 
 .dealName {
   grid-area: dealName;

@@ -17,7 +17,6 @@ import Modal from "../../Common/Modal/Modal";
 import Description from "../Description/Description";
 
 const Deal = (props) => {
-    let ShowS = () => {console.log(showSubDeal)};
 
     let [showSubDeal, setShowSubDeal] = useState(false);
 
@@ -35,6 +34,9 @@ const Deal = (props) => {
     let theme = props.theme;
 
     console.log(props);
+
+    //let e = true;
+
     return (
         <div className={style.dealBlock}>
             <div>
@@ -55,6 +57,8 @@ const Deal = (props) => {
                         changeDescription={props.changeDescription}
                         setShowInCalendar={props.setShowInCalendar}
                         cancelShowInCalendar={props.cancelShowInCalendar}
+                        setImportant={props.setImportant}
+                        cancelImportant={props.cancelImportant}
                         />
                         />
                     </Modal>,
@@ -72,6 +76,9 @@ const Deal = (props) => {
                 )}
             </div>
             <div className={!props.isDone ? classNames(style.dealMain, theme.dealMain) :classNames(style.dealMain, theme.dealMainDone)} >
+
+                {/*Button of subDeals*/}
+
                 <div className={style.openBtn}>
                     {
                         props.subdeals.length === 0 ?
@@ -80,12 +87,26 @@ const Deal = (props) => {
                             <OpenTree make={changeShowSubDeal} isShow={showSubDeal}/>
                     }
                 </div>
+
+                {/*Name of Deal*/}
+
                 <div className={style.dealName}>
                     <Label
                         name={props.name}
                         id={props.id}
                     />
                 </div>
+
+                {/*Importance block*/}
+
+                <div className={classNames(style.dealImportance, theme.importance)} >
+                    {props.importance && <p>!</p>}
+                </div>
+
+
+
+                {/*Buttons, witch helps, to operate deal*/}
+
                 <div className={style.dealMenu}>
                     {! props.isDone ? <RedactDeal make={toggleRedactWindow}/> : <RedactDeal disabled='disabled'/>}
                     {! props.is && props.description ? <ShowDescription make={toggleDescription}/> : <ShowDescription disabled='disabled'/>}

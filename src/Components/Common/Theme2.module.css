@@ -52,6 +52,11 @@
   text-shadow: #0cf5ff 0 0 8px;
   box-shadow: 0 0 15px #00d9df; }
 
+.importance p {
+  font-weight: bold;
+  font-stretch: extra-expanded;
+  text-shadow: red 0 0 9px; }
+
 .scrollbar ::-webkit-scrollbar {
   width: 17px; }
 .scrollbar ::-webkit-scrollbar-thumb {

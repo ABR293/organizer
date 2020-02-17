@@ -2,7 +2,7 @@ import React from 'react';
 import style from './RedactWindow.module.css'
 import classNames from "classnames";
 import DataChanging from "./DataChenging";
-import Description from "../DealTree/Description/Description";
+//import Description from "../DealTree/Description/Description";
 import DescriptionInput from "./DescriptionInput";
 
 const RedactWindow = (props) => {
@@ -15,7 +15,24 @@ const RedactWindow = (props) => {
             <p className={style.name}>Name</p>
             <input type="text" className={style.nameBlock}/>
             <div className={style.impotance}>
-                <button>!</button>
+                {!props.importance
+                    ?
+                    <button
+                        onClick={() => {
+                            props.setImportant(props.id)
+                        }}
+                    >
+                        MI
+                    </button>
+                    :
+                    <button
+                        onClick={() => {
+                            props.cancelImportant(props.id)
+                        }}
+                    >
+                        DMI
+                    </button>
+                }
             </div>
             <p className={style.date}>Data</p>
             <div className={style.firstDate}>

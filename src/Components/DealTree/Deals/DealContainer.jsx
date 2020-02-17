@@ -2,10 +2,10 @@ import React from 'react';
 import {connect} from "react-redux";
 import Deal from "./Deal";
 import {
-    addNewDeal,
+    addNewDeal, cancelImportant,
     cancelShowInCalendar,
     changeDescription,
-    changeName,
+    changeName, setImportant,
     setShowInCalendar
 } from "../../../Redux/DealReducer";
 
@@ -31,6 +31,8 @@ class DealContainer extends React.Component{
                 changeDescription={this.props.changeDescription}
                 setShowInCalendar={this.props.setShowInCalendar}
                 cancelShowInCalendar={this.props.cancelShowInCalendar}
+                setImportant={this.props.setImportant}
+                cancelImportant={this.props.cancelImportant}
             />
             )
     }
@@ -49,6 +51,8 @@ export default connect(mapStateToProps,
         addNewDeal,
         changeDescription,
         setShowInCalendar,
-        cancelShowInCalendar
+        cancelShowInCalendar,
+        setImportant,
+        cancelImportant
     }
 )(DealContainer);
