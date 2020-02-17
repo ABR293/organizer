@@ -13,7 +13,7 @@ class CalendarContainer extends React.Component{
             console.log(NewData);
             data.forEach((item) => {
                 if(item.children.length !== 0){
-                    NewData = [...NewData, ...item.children, ...DeployData(item.children)];
+                    NewData = [...NewData, ...DeployData(item.children)];
                     console.log(NewData)
                 }
             });
