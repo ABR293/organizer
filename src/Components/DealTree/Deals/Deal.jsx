@@ -115,7 +115,7 @@ const Deal = (props) => {
                 </div>
             </div>
             <div  className={showSubDeal ? classNames(style.subDealsBlock, theme.subDealsBlock): style.sadDealsBlockNone}>
-                {props.subdeals.length === 0 ? null : <SubList id={props.id} listBody={props.subdeals}/>}
+                {props.subdeals.length === 0 ? null : <SubList theme={props.theme} id={props.id} listBody={props.subdeals}/>}
             </div>
         </div>
     )

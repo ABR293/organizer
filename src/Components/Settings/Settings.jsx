@@ -1,10 +1,13 @@
 import React, {useEffect} from 'react';
+import classNames from "classnames";
 import style from './Settings.module.css';
 import theme1 from '../Common/Theme1.module.css';
 import theme2 from '../Common/Theme2.module.css';
 import theme3 from '../Common/Theme3.module.css';
 
 const Settings = (props) => {
+
+    let theme = props.theme;
 
     useEffect(() => {
         document.title = `Настройки`;
@@ -14,7 +17,7 @@ const Settings = (props) => {
         <>
             <div className={style.block}>
                 <h2>Настройки</h2>
-                <div className={style.item}>
+                <div className={classNames(style.item, theme.content)}>
                     <p>Сменить тему</p>
                     <div className={style.buttonBlock}>
                         <button

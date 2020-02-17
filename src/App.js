@@ -43,7 +43,7 @@ class App extends React.Component {
                            render={() => <DealTreeContainer theme={theme}/>}
                     />
                     <Route path='/Settings'
-                           render={() => <SettingsContainer />}
+                           render={() => <SettingsContainer theme={theme}/>}
                     />
                 </div>
 

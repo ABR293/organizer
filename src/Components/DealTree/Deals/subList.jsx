@@ -1,10 +1,12 @@
 import React from 'react';
 import DealContainer from "../Deals/DealContainer";
 import AddNewDeal from "../../Common/Buttons/AddNewDeal";
-import style from "./subList.module.css"
+import style from "./subList.module.css";
+import classNames from "classnames";
 
 const SubList = (props) => {
 
+    let theme = props.theme;
 
     let Deals = props.listBody.map((deal) => {
         return (
@@ -18,7 +20,7 @@ const SubList = (props) => {
         )
     });
     return (
-        <div className={style.list}>
+        <div className={classNames(style.list, theme.list)}>
             <div>
                 {Deals}
             </div>
