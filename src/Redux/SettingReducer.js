@@ -49,7 +49,7 @@ export const SettingReducer = (state = initialState, action) => {
             if (!!JSON.parse(localStorage.getItem('userSettings'))) {
                 return JSON.parse(localStorage.getItem('userSettings'))
             } else {
-                return [...state]
+                return {...state}
             }
         }
         default: {
