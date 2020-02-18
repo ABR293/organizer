@@ -28,7 +28,7 @@ const ListMenu = (props) => {
     return(
         <div className={style.listMenu}>
             {Lists}
-            <span className={style.listMenu__newItem} onClick={props.addNewList} > <p>+</p> </span>
+            <span className={classNames(style.listMenu__newItem, theme.menuItem)} onClick={props.addNewList}> <p>+</p> </span>
         </div>
     )
 };

@@ -12,8 +12,7 @@ const RedactWindow = (props) => {
 
     return (
         <div className={classNames(style.block, theme.redactWindow)}>
-            <p className={style.name}>Name</p>
-            <input type="text" className={style.nameBlock}/>
+            <p className={style.nameBlock}>{props.name}</p>
             <div className={style.impotance}>
                 {!props.importance
                     ?

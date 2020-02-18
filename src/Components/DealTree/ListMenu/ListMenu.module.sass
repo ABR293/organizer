@@ -2,7 +2,7 @@
 
 %listMenuItem
   @extend %menuItem
-  width: 80px
+  min-width: 80px
   height: 20px
   border-top-left-radius: 5px
   border-top-right-radius: 5px
@@ -15,8 +15,11 @@
   &__item
     @extend %listMenuItem
   &__newItem
-    @extend %listMenuItem
+    @extend %menuItem
     @extend %centralization
-    width: 25px
+    width: 20px
+    height: 20px
+    border-top-left-radius: 5px
+    border-top-right-radius: 5px
     font-size: 120%
 
