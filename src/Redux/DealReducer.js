@@ -13,6 +13,7 @@ const DELETE_DEAL = 'DELETE-DEAL';
 const DELETE_LIST = 'DELETE-LIST';
 const SET_IMPORTANT = 'SET-IMPORTANT';
 const CANCEL_IMPORTANT = 'CANCEL-IMPORTANT';
+
 let initialState =
     [
         {
